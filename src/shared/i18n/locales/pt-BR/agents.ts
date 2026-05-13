@@ -1,0 +1,23 @@
+export default {
+  title: "Perfis",
+  subtitle:
+    "Cada perfil é um espaço de trabalho isolado do Hermes com sua própria configuração, memória e habilidades",
+  newAgent: "Novo Agente",
+  namePlaceholder: "Nome do agente (ex: programador)",
+  cloneConfig: "Clonar configuração e chaves de API do padrão",
+  createFailed: "Falha ao criar o perfil",
+  creating: "Criando...",
+  create: "Criar",
+  active: "Ativo",
+  noModel: "Nenhum modelo definido",
+  skillsCount: "{{count}} habilidades",
+  gatewayRunning: "Gateway em execução",
+  gatewayOff: "Gateway desligado",
+  chat: "Conversa",
+  deleteConfirm: "Excluir?",
+  yes: "Sim",
+  no: "Não",
+  deleteTitle: "Excluir agente",
+  auto: "Automático",
+  local: "Local",
+} as const;
