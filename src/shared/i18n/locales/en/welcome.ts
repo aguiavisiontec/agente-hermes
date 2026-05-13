@@ -12,7 +12,7 @@ export default {
   dividerOr: "or",
   connectRemote: "Connect to Remote Agent",
   connectRemoteTitle: "Connect to Remote Agent",
-  connectRemoteSubtitle: "Enter the URL of a running Agente Hermes API server.",
+  connectRemoteSubtitle: "Enter the URL of a running Agente IA Aguiavitech API server.",
   remoteServerUrl: "Server URL",
   remoteApiKey: "API Key (optional)",
   remoteApiKeyPlaceholder: "Bearer token (API_SERVER_KEY)",

@@ -3,7 +3,7 @@ export default {
   startingInstall: "Iniciando instalação",
   installationComplete: "Instalação Concluída",
   installationFailed: "Falha na Instalação",
-  installingHermes: "Instalando Agente Hermes",
+  installingHermes: "Instalando Agente IA Aguiavitech",
   installationFailedHint:
     "A instalação falhou. Por favor, tente novamente ou instale via terminal.",
   retryInstallation: "Tentar Instalação Novamente",

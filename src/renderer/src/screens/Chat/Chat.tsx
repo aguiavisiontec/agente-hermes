@@ -715,7 +715,7 @@ function Chat({
           window.hermesAPI.getAppVersion(),
         ]);
         pushLocalResponse(
-          `**Agente Hermes:** ${hermesVer || "desconhecido"}\n**App Desktop:** v${appVer}`,
+          `**Agente IA Aguiavitech:** ${hermesVer || "desconhecido"}\n**App Desktop:** v${appVer}`,
         );
         return true;
       }

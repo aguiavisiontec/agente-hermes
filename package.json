@@ -1,9 +1,9 @@
 {
-  "name": "hermes-desktop-br",
+  "name": "agente-aguiavitech",
   "version": "0.3.7",
-  "description": "Hermes Agent Desktop BR — assistente de IA com auto-aprimoramento, 100% em português brasileiro",
+  "description": "Agente IA Aguiavitech — assistente de IA com auto-aprimoramento",
   "main": "./out/main/index.js",
-  "author": "Aguiavision Tecnologia",
+  "author": "Aguiavitech",
   "homepage": "https://github.com/aguiavisiontec/agente-hermes",
   "scripts": {
     "format": "prettier --write .",

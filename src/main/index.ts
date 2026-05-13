@@ -277,7 +277,7 @@ function setupIPC(): void {
         event.sender.send("install-progress", {
           step: 1,
           totalSteps: 1,
-          title: "Atualizando Agente Hermes remoto",
+          title: "Atualizando Agente IA Aguiavitech remoto",
           detail: "Running hermes update over SSH...",
           log: "Running hermes update over SSH...\n",
         });
@@ -550,7 +550,7 @@ function setupIPC(): void {
                 .trim()
                 .slice(0, 80);
               new Notification({
-                title: "Agente Hermes",
+                title: "Agente IA Aguiavitech",
                 body: preview || "Resposta pronta",
               }).show();
             }
@@ -562,7 +562,7 @@ function setupIPC(): void {
             // Notify on error too if window not focused
             if (mainWindow && !mainWindow.isFocused()) {
               new Notification({
-                title: "Agente Hermes — Erro",
+                title: "Agente IA Aguiavitech — Erro",
                 body: error.slice(0, 100),
               }).show();
             }
@@ -1027,7 +1027,7 @@ function buildMenu(): void {
       label: "Help",
       submenu: [
         {
-          label: "Agente Hermes no GitHub",
+          label: "Agente IA Aguiavitech no GitHub",
           click: (): void => {
             shell.openExternal("https://github.com/aguiavisiontec/agente-hermes");
           },
@@ -1114,8 +1114,8 @@ function setupUpdater(): void {
 }
 
 app.whenReady().then(() => {
-  app.name = "Agente Hermes";
-  electronApp.setAppUserModelId("com.aguiavision.hermes");
+  app.name = "Agente IA Aguiavitech";
+  electronApp.setAppUserModelId("com.aguiavitech.agente");
 
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window);

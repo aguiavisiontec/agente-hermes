@@ -79,7 +79,7 @@ function Welcome({
         onRecheck();
       } else {
         setSshError(
-          "Could not connect via SSH or reach Hermes on the remote. Make sure:\n• SSH key is correct (or default ~/.ssh/id_rsa works)\n• Agente Hermes gateway is running on the remote\n• The remote port is correct (default 8642)",
+          "Could not connect via SSH or reach Hermes on the remote. Make sure:\n• SSH key is correct (or default ~/.ssh/id_rsa works)\n• Agente IA Aguiavitech gateway is running on the remote\n• The remote port is correct (default 8642)",
         );
       }
     } catch (e) {
@@ -163,7 +163,7 @@ function Welcome({
           Connect via SSH
         </h1>
         <p className="welcome-subtitle" style={{ marginBottom: 24 }}>
-          Tunnel to a remote Agente Hermes over SSH — no exposed ports or API keys needed.
+          Tunnel to a remote Agente IA Aguiavitech over SSH — no exposed ports or API keys needed.
         </p>
 
         <div className="welcome-remote-card">
@@ -212,7 +212,7 @@ function Welcome({
           />
 
           <label className="welcome-remote-label" style={{ marginTop: 12 }}>
-            Remote Agente Hermes Port <span style={{ fontWeight: 400, opacity: 0.6 }}>(default 8642)</span>
+            Remote Agente IA Aguiavitech Port <span style={{ fontWeight: 400, opacity: 0.6 }}>(default 8642)</span>
           </label>
           <input
             type="number"
