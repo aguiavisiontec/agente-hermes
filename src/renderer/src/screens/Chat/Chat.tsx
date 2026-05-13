@@ -715,7 +715,7 @@ function Chat({
           window.hermesAPI.getAppVersion(),
         ]);
         pushLocalResponse(
-          `**Hermes Agent:** ${hermesVer || "unknown"}\n**Desktop App:** v${appVer}`,
+          `**Agente Hermes:** ${hermesVer || "desconhecido"}\n**App Desktop:** v${appVer}`,
         );
         return true;
       }

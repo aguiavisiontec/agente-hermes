@@ -277,7 +277,7 @@ function setupIPC(): void {
         event.sender.send("install-progress", {
           step: 1,
           totalSteps: 1,
-          title: "Updating remote Hermes Agent",
+          title: "Atualizando Agente Hermes remoto",
           detail: "Running hermes update over SSH...",
           log: "Running hermes update over SSH...\n",
         });
@@ -550,8 +550,8 @@ function setupIPC(): void {
                 .trim()
                 .slice(0, 80);
               new Notification({
-                title: "Hermes Agent",
-                body: preview || "Response ready",
+                title: "Agente Hermes",
+                body: preview || "Resposta pronta",
               }).show();
             }
           },
@@ -562,7 +562,7 @@ function setupIPC(): void {
             // Notify on error too if window not focused
             if (mainWindow && !mainWindow.isFocused()) {
               new Notification({
-                title: "Hermes Agent — Error",
+                title: "Agente Hermes — Erro",
                 body: error.slice(0, 100),
               }).show();
             }
@@ -1027,16 +1027,16 @@ function buildMenu(): void {
       label: "Help",
       submenu: [
         {
-          label: "Hermes Agent on GitHub",
+          label: "Agente Hermes no GitHub",
           click: (): void => {
-            shell.openExternal("https://github.com/NousResearch/hermes-agent/");
+            shell.openExternal("https://github.com/aguiavisiontec/agente-hermes");
           },
         },
         {
-          label: "Report an Issue",
+          label: "Reportar um Problema",
           click: (): void => {
             shell.openExternal(
-              "https://github.com/fathah/hermes-desktop/issues",
+              "https://github.com/aguiavisiontec/agente-hermes/issues",
             );
           },
         },
@@ -1114,8 +1114,8 @@ function setupUpdater(): void {
 }
 
 app.whenReady().then(() => {
-  app.name = "Hermes";
-  electronApp.setAppUserModelId("com.nousresearch.hermes");
+  app.name = "Agente Hermes";
+  electronApp.setAppUserModelId("com.aguiavision.hermes");
 
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window);

@@ -1,7 +1,7 @@
 export default {
   title: "Settings",
   sections: {
-    hermesAgent: "Hermes Agent",
+    hermesAgent: "Aguiavision Tecnologia",
     appearance: "Appearance",
     credentialPool: "Credential Pool",
   },

@@ -3,8 +3,8 @@
   "version": "0.3.7",
   "description": "Hermes Agent Desktop BR — assistente de IA com auto-aprimoramento, 100% em português brasileiro",
   "main": "./out/main/index.js",
-  "author": "fathah",
-  "homepage": "https://github.com/fathah/hermes-desktop",
+  "author": "Aguiavision Tecnologia",
+  "homepage": "https://github.com/aguiavisiontec/agente-hermes",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",

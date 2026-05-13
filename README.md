@@ -1,18 +1,18 @@
 <div align="center">
 
-<img width="100%" alt="HERMES BR" src="docs/hermes-br-banner.png" />
+<img width="100%" alt="Agente Hermes — Aguiavision Tecnologia" src="docs/hermes-br-banner.png" />
 
 <br/>
 <br/>
 
 **Desktop AI Workspace para o Brasil**
 
-*Sua plataforma de agentes de IA completa, poderosa e 100% em português.*
+*Plataforma de agentes de IA pela Aguiavision Tecnologia — completa, poderosa e 100% em português.*
 
 <br/>
 
-<a href="https://github.com/fathah/hermes-desktop/releases/tag/v0.3.7"><img src="https://img.shields.io/badge/Base-v0.3.7-FFD700?style=for-the-badge" alt="Base Version"></a>
-<a href="https://github.com/fathah/hermes-desktop"><img src="https://img.shields.io/badge/Upstream-hermes--desktop-222222?style=for-the-badge&logo=github" alt="Upstream"></a>
+<a href="https://github.com/aguiavisiontec/agente-hermes/releases"><img src="https://img.shields.io/badge/Versão-v0.3.7-FFD700?style=for-the-badge" alt="Version"></a>
+<a href="https://github.com/aguiavisiontec/agente-hermes"><img src="https://img.shields.io/badge/Aguiavision-Tecnologia-222222?style=for-the-badge&logo=github" alt="Aguiavision"></a>
 <img src="https://img.shields.io/badge/Idioma-pt--BR-009739?style=for-the-badge&logo=flag&logoColor=white" alt="pt-BR">
 <img src="https://img.shields.io/badge/Licença-MIT-green?style=for-the-badge" alt="License: MIT">
 
@@ -27,25 +27,26 @@
 
 ## 🧠 Agentes Inteligentes · 🧊 Memória Persistente · 🧩 MCP Integrado
 
-Hermes BR é um fork brasileiro do [Hermes Desktop](https://github.com/fathah/hermes-desktop) — um aplicativo nativo para instalar, configurar e conversar com o [Hermes Agent](https://github.com/NousResearch/hermes-agent), um assistente de IA que se aprimora sozinho com uso de ferramentas, mensagens multi-plataforma e ciclo de aprendizado fechado.
+Agente Hermes é um aplicativo desktop nativo pela **Aguiavision Tecnologia** para instalar, configurar e conversar com o [Hermes Agent](https://github.com/NousResearch/hermes-agent) — um assistente de IA que se aprimora sozinho com uso de ferramentas, mensagens multi-plataforma e ciclo de aprendizado fechado.
 
 Em vez de gerenciar o CLI manualmente, o app guia você pela instalação, configuração de provedor e uso diário em um só lugar. Ele usa o script oficial de instalação do Hermes, armazena os dados em `~/.hermes`, e oferece uma GUI para conversa, sessões, perfis, memória, habilidades, ferramentas, agendamentos, gateways de mensagens e muito mais — **tudo em português brasileiro**.
 
-### 🇧🇷 O que muda neste fork?
+### 🇧🇷 Por que o Agente Hermes?
 
-| Recurso | Upstream (Original) | Hermes BR |
-|---------|---------------------|-----------|
-| Idioma padrão | Inglês | **Português Brasileiro** |
-| Interface | Parcialmente traduzida | **100% traduzida e revisada** |
+| Recurso | Outros apps | Agente Hermes |
+|---------|-------------|---------------|
+| Idioma | Inglês | **Português Brasileiro** |
+| Interface | Tradução parcial | **100% traduzida e revisada** |
 | Navegação | "Chat", "Soul", "Auto" | "Conversa", "Persona", "Automático" |
 | Documentação | Inglês | **Português Brasileiro** |
-| Termos técnicos | Mantidos em inglês | **Adaptados para pt-BR** |
+| Suporte | Comunidade geral | **Comunidade brasileira** |
+| Identidade | Genérica | **Aguiavision Tecnologia** |
 
 ---
 
 ## 🚀 Instalar
 
-Baixe a versão mais recente na página de [Releases](https://github.com/fathah/hermes-desktop/releases/).
+Baixe a versão mais recente na página de [Releases](https://github.com/aguiavisiontec/agente-hermes/releases).
 
 | Plataforma | Arquivo |
 |---|---|
@@ -58,7 +59,7 @@ Baixe a versão mais recente na página de [Releases](https://github.com/fathah/
 ### Windows (winget)
 
 ```powershell
-winget install NousResearch.HermesDesktop
+winget install Aguiavision.AgenteHermes
 ```
 
 > **Usuários Windows:** O instalador não é assinado com código. O SmartScreen do Windows avisará na primeira execução — clique em "Mais informações" → "Executar mesmo assim".
@@ -66,17 +67,17 @@ winget install NousResearch.HermesDesktop
 ### Fedora (RPM)
 
 ```bash
-sudo dnf install ./hermes-desktop-<versão>.rpm
+sudo dnf install ./agente-hermes-<versão>.rpm
 ```
 
-> **Usuários Fedora:** O `.rpm` não é assinado com GPG. Se seu sistema exige verificação de assinatura, adicione `--nogpgcheck` ao comando de instalação. Atualização automática não é suportada para builds `.rpm` (limitação do `electron-updater`); reinstale o novo `.rpm` para atualizar.
+> **Usuários Fedora:** O `.rpm` não é assinado com GPG. Se seu sistema exige verificação de assinatura, adicione `--nogpgcheck` ao comando de instalação.
 
 ### macOS
 
 > **Usuários macOS:** O app não é assinado ou notarizado. O macOS bloqueará na primeira execução. Para corrigir, execute o seguinte após instalar:
 >
 > ```bash
-> xattr -cr "/Applications/Hermes Agent.app"
+> xattr -cr "/Applications/Agente Hermes.app"
 > ```
 >
 > Ou clique com o botão direito no app → **Abrir** → clique **Abrir** no diálogo de confirmação.
@@ -243,7 +244,7 @@ Os arquivos do Hermes são gerenciados em:
 
 ## 🤝 Contribuindo
 
-Contribuições são bem-vindas! Confira o [Guia de Contribuição](CONTRIBUTING.md) para começar. Se não tiver certeza por onde começar, dê uma olhada nas [issues abertas](https://github.com/fathah/hermes-desktop/issues). Encontrou um bug ou tem uma sugestão? [Abra uma issue](https://github.com/fathah/hermes-desktop/issues/new).
+Contribuições são bem-vindas! Confira o [Guia de Contribuição](CONTRIBUTING.md) para começar. Se não tiver certeza por onde começar, dê uma olhada nas [issues abertas](https://github.com/aguiavisiontec/agente-hermes/issues). Encontrou um bug ou tem uma sugestão? [Abra uma issue](https://github.com/aguiavisiontec/agente-hermes/issues/new).
 
 ---
 
@@ -257,8 +258,11 @@ Para o agente principal, documentação e fluxos de trabalho CLI, veja o reposit
 
 <div align="center">
 
-**Hermes BR. O poder da IA na sua mesa.**
+**Agente Hermes. O poder da IA na sua mesa.**
 
-🪟 Windows 10/11 · 🔓 Código Aberto · ❤️ Feito com paixão no Brasil
+<p>🪟 Windows 10/11 · 🐧 Linux · 🍎 macOS</p>
+<p>🔓 Código Aberto · 🇧🇷 Feito com paixão no Brasil</p>
+
+<p><strong>Aguiavision Tecnologia</strong></p>
 
 </div>
