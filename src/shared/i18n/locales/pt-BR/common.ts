@@ -1,5 +1,5 @@
 export default {
-  appName: "Agente Hermes — Aguiavision",
+  appName: "Aguiavision Tecnologia",
   continue: "Continuar",
   cancel: "Cancelar",
   retry: "Tentar novamente",

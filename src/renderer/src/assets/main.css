@@ -858,9 +858,11 @@ body {
 }
 
 .sidebar-brand-name {
-  font-size: 16px;
-  font-weight: 700;
+  font-size: 13px;
+  font-weight: 600;
   color: var(--text-primary);
+  margin-left: 8px;
+  white-space: nowrap;
 }
 
 .sidebar-nav {

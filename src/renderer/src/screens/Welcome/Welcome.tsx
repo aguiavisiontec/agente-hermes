@@ -54,7 +54,7 @@ function Welcome({
         onRecheck();
       } else {
         setRemoteError(
-          "Could not reach Hermes at this URL. Check the URL and API key.\n\nLeave the key empty if the server accepts unauthenticated requests (e.g. via SSH tunnel to localhost).",
+          "Could not reach the server at this URL. Check the URL and API key.\n\nLeave the key empty if the server accepts unauthenticated requests (e.g. via SSH tunnel to localhost).",
         );
       }
     } catch {
@@ -79,7 +79,7 @@ function Welcome({
         onRecheck();
       } else {
         setSshError(
-          "Could not connect via SSH or reach Hermes on the remote. Make sure:\n• SSH key is correct (or default ~/.ssh/id_rsa works)\n• Hermes gateway is running on the remote\n• The remote port is correct (default 8642)",
+          "Could not connect via SSH or reach Hermes on the remote. Make sure:\n• SSH key is correct (or default ~/.ssh/id_rsa works)\n• Agente Hermes gateway is running on the remote\n• The remote port is correct (default 8642)",
         );
       }
     } catch (e) {
@@ -163,7 +163,7 @@ function Welcome({
           Connect via SSH
         </h1>
         <p className="welcome-subtitle" style={{ marginBottom: 24 }}>
-          Tunnel to a remote Hermes over SSH — no exposed ports or API keys needed.
+          Tunnel to a remote Agente Hermes over SSH — no exposed ports or API keys needed.
         </p>
 
         <div className="welcome-remote-card">
@@ -212,7 +212,7 @@ function Welcome({
           />
 
           <label className="welcome-remote-label" style={{ marginTop: 12 }}>
-            Remote Hermes Port <span style={{ fontWeight: 400, opacity: 0.6 }}>(default 8642)</span>
+            Remote Agente Hermes Port <span style={{ fontWeight: 400, opacity: 0.6 }}>(default 8642)</span>
           </label>
           <input
             type="number"
@@ -306,7 +306,7 @@ function Welcome({
 
             <button className="btn btn-secondary welcome-recheck-btn" onClick={() => setPanel("remote")}>
               <Globe size={16} />
-              Connect to Remote Hermes
+              {t("welcome.connectRemote")}
             </button>
           </div>
         </>

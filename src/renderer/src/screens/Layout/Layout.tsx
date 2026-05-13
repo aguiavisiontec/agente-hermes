@@ -190,6 +190,7 @@ function Layout({
       <aside className="sidebar">
         <div className="sidebar-brand">
           <img src={hermeslogo} height={30} alt="" />
+          <span className="sidebar-brand-name">Aguiavision Tecnologia</span>
         </div>
 
         <nav className="sidebar-nav">

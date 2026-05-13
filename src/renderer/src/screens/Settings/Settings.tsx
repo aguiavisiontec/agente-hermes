@@ -482,7 +482,7 @@ function Settings({ profile }: { profile?: string }): React.JSX.Element {
         <div className="settings-field">
           <div className="settings-field-hint" style={{ marginBottom: 10 }}>
             Join our Telegram group to ask questions, report issues, and chat
-            with other Hermes users.
+            with other users.
           </div>
           <div className="settings-hermes-actions">
             <button
@@ -540,7 +540,7 @@ function Settings({ profile }: { profile?: string }): React.JSX.Element {
             {connMode === "local"
               ? t("settings.modeLocalHint")
               : connMode === "ssh"
-              ? "Tunnel to a remote Hermes over SSH — no exposed ports or API keys needed."
+              ? "Tunnel to a remote Agente Hermes over SSH — no exposed ports or API keys needed."
               : t("settings.modeRemoteHint")}
           </div>
         </div>
@@ -641,7 +641,7 @@ function Settings({ profile }: { profile?: string }): React.JSX.Element {
             </div>
             <div className="settings-field">
               <label className="settings-field-label">
-                Remote Hermes Port{" "}
+                Remote Port{" "}
                 <span style={{ fontWeight: 400, opacity: 0.6 }}>(default 8642)</span>
               </label>
               <input
