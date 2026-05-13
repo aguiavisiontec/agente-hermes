@@ -12,7 +12,21 @@ echo "🇧🇷 Agente Hermes — Aguiavision Tecnologia"
 echo "─────────────────────────────────────────────"
 
 # Cria diretórios necessários se não existirem
-mkdir -p "${HERMES_HOME}/profiles" "${HERMES_HOME}/cron"
+mkdir -p "${HERMES_HOME}/profiles" "${HERMES_HOME}/cron" "${HERMES_HOME}/skills"
+
+# ── Copia skills customizadas da Aguiavision ──
+if [ -d "/data/hermes-skills" ]; then
+    echo "📋 Copiando skills customizadas..."
+    for skill_dir in /data/hermes-skills/*/; do
+        skill_name=$(basename "${skill_dir}")
+        if [ ! -d "${HERMES_HOME}/skills/${skill_name}" ]; then
+            cp -r "${skill_dir}" "${HERMES_HOME}/skills/${skill_name}"
+            echo "   ✅ ${skill_name} instalado"
+        else
+            echo "   ℹ️  ${skill_name} já existe — preservando"
+        fi
+    done
+fi
 
 # Copia .env do volume mount se existir, senão cria um modelo
 if [ ! -f "${HERMES_HOME}/.env" ]; then
@@ -98,6 +112,17 @@ tools:
 # Memória
 memory:
   enabled: true
+
+# MCP Servers — Automação de browser via Playwright
+mcp_servers:
+  playwright:
+    command: "npx"
+    args:
+      - "-y"
+      - "@playwright/mcp@latest"
+      - "--headless"
+    timeout: 120
+    connect_timeout: 60
 YAMLEOF
         echo "📝 Modelo config.yaml criado em ${HERMES_HOME}/config.yaml"
     fi
@@ -146,10 +171,20 @@ envsubst < "${HERMES_HOME}/config.yaml" > "${HERMES_HOME}/config.yaml.tmp" 2>/de
     mv "${HERMES_HOME}/config.yaml.tmp" "${HERMES_HOME}/config.yaml" || \
     rm -f "${HERMES_HOME}/config.yaml.tmp"
 
-echo "🚀 Iniciando Agente Hermes..."
+# ── Lista skills instaladas ──
+echo "📋 Skills instaladas:"
+for skill_dir in ${HERMES_HOME}/skills/*/; do
+    if [ -f "${skill_dir}SKILL.md" ]; then
+        skill_name=$(grep '^name:' "${skill_dir}SKILL.md" | head -1 | sed 's/name: *//' | tr -d '"')
+        echo "   • ${skill_name}"
+    fi
+done
+
+echo "🚀 Iniciando Agente IA Aguiavitech..."
 echo "   Modo: ${1:-gateway}"
 echo "   HERMES_HOME: ${HERMES_HOME}"
 echo "   API Server: 0.0.0.0:8642"
+echo "   MCP: Playwright (headless Chromium)"
 echo "─────────────────────────────────────────────"
 
 cd "${HERMES_REPO}"

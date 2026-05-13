@@ -19,8 +19,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     locales \
     ffmpeg \
     ripgrep \
+    gnupg2 \
     && sed -i '/pt_BR.UTF-8/s/^# //g' /etc/locale.gen \
     && locale-gen pt_BR.UTF-8 \
+    && rm -rf /var/lib/apt/lists/*
+
+# Instala Node.js 20.x (necessário para Playwright MCP e npx)
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
+    && apt-get install -y --no-install-recommends nodejs \
     && rm -rf /var/lib/apt/lists/*
 
 # Instala uv (gerenciador de pacotes Python rápido)
@@ -45,17 +51,24 @@ FROM base AS runtime
 COPY --from=builder /opt/hermes-venv /opt/hermes-venv
 COPY --from=builder /opt/hermes /opt/hermes
 
-# Cria diretório de dados
-RUN mkdir -p /data/hermes/profiles /data/hermes/cron
+# Cria diretório de dados e skills
+RUN mkdir -p /data/hermes/profiles /data/hermes/cron /data/hermes/skills
+
+# Copia skills customizadas da Aguiavision
+COPY deploy/skills/ /data/hermes-skills/
+
+# Instala Playwright Chromium para o MCP server
+RUN npx playwright install chromium --with-deps 2>&1 | tail -5 || true
 
 # Script de entrada
 COPY deploy/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-# Configura PATH para o venv
-ENV PATH="/opt/hermes-venv/bin:${PATH}" \
+# Configura PATH para o venv + npx
+ENV PATH="/opt/hermes-venv/bin:/usr/bin:${PATH}" \
     HERMES_REPO="/opt/hermes" \
-    HERMES_HOME="/data/hermes"
+    HERMES_HOME="/data/hermes" \
+    DISPLAY=""
 
 # Porta do API server do Hermes
 EXPOSE 8642
