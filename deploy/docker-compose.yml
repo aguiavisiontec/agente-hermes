@@ -1,0 +1,74 @@
+# ────────────────────────────────────────────────────
+# Agente Hermes — Docker Compose
+# Aguiavision Tecnologia
+# ────────────────────────────────────────────────────
+# Integra com a stack existente em /infra/ia
+#
+# Uso:
+#   docker compose -f docker-compose.yml up -d
+#
+# Conecte o Desktop App via modo remoto:
+#   URL: http://<IP_VPS>:8642
+#   API Key: (valor de API_SERVER_KEY no .env)
+# ────────────────────────────────────────────────────
+
+services:
+  agente-hermes:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: agente-hermes
+    restart: unless-stopped
+    ports:
+      # API server do Hermes — acessível externamente para o Desktop App
+      - "8642:8642"
+    volumes:
+      # Dados persistentes do Hermes
+      - hermes-data:/data/hermes
+      # Monte seu .env com as chaves API aqui:
+      # - ./hermes.env:/secrets/hermes.env:ro
+      # - ./hermes-config.yaml:/secrets/hermes-config.yaml:ro
+    environment:
+      - HERMES_HOME=/data/hermes
+      - API_SERVER_KEY=${API_SERVER_KEY:-hermes-aguiavision-2026}
+      # Proxy Anthropic local (já existe na sua stack)
+      - ANTHROPIC_BASE_URL=http://proxy-anthropic:4000
+    networks:
+      - ia-network
+    depends_on:
+      - proxy-anthropic
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://127.0.0.1:8642/health"]
+      interval: 30s
+      timeout: 5s
+      start_period: 30s
+      retries: 3
+    labels:
+      - "com.aguiavision.service=agente-hermes"
+      - "com.aguiavision.description=Agente Hermes - Assistente de IA"
+
+  # ── Proxy Anthropic (já existe na sua stack) ──
+  # Descomente APENAS se NÃO tiver o proxy-anthropic rodando
+  # proxy-anthropic:
+  #   image: your-proxy-anthropic-image
+  #   container_name: proxy-anthropic
+  #   restart: unless-stopped
+  #   ports:
+  #     - "127.0.0.1:4000:4000"
+  #   networks:
+  #     - ia-network
+
+volumes:
+  hermes-data:
+    name: agente-hermes-data
+    labels:
+      - "com.aguiavision.volume=hermes-data"
+
+networks:
+  ia-network:
+    name: ia-network
+    # Se sua stack existente já tem uma network, use external: true
+    # e comente as labels abaixo
+    external: false
+    labels:
+      - "com.aguiavision.network=ia-network"
