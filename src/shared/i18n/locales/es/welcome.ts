@@ -1,5 +1,5 @@
 export default {
-  title: "Bienvenido a Aguiavision",
+  title: "Bienvenido a Aguiavitech",
   subtitle:
     "Tu asistente de IA autoevolutivo que se ejecuta localmente en tu equipo. Privado, potente y siempre aprendiendo.",
   installIssueTitle: "Problema de instalación",

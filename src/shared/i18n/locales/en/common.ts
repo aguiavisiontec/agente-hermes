@@ -1,5 +1,5 @@
 export default {
-  appName: "Aguiavision Tecnologia",
+  appName: "Agente IA Aguiavitech",
   continue: "Continue",
   cancel: "Cancel",
   retry: "Retry",

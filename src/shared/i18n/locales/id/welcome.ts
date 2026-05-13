@@ -1,5 +1,5 @@
 export default {
-  title: "Selamat datang di Aguiavision",
+  title: "Selamat datang di Aguiavitech",
   subtitle:
     "Asisten AI yang terus berkembang dan berjalan lokal di mesin Anda. Privat, kuat, dan selalu belajar.",
   installIssueTitle: "Masalah Instalasi",

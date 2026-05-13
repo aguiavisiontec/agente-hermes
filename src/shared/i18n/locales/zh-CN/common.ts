@@ -1,5 +1,5 @@
 export default {
-  appName: "Aguiavision Tecnologia",
+  appName: "Agente IA Aguiavitech",
   continue: "继续",
   cancel: "取消",
   retry: "重试",

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef, useCallback, useMemo, memo } from "react";
-import icon from "../../assets/icon.png";
+import aguiavitechLogo from "../../assets/aguiavitech-logo.png";
 import { AgentMarkdown } from "../../components/AgentMarkdown";
 import {
   Trash2 as Trash,
@@ -125,7 +125,7 @@ const SLASH_COMMANDS: SlashCommand[] = [
 function HermesAvatar({ size = 30 }: { size?: number }): React.JSX.Element {
   return (
     <div className="chat-avatar chat-avatar-agent">
-      <img src={icon} width={size} height={size} alt="" />
+      <img src={aguiavitechLogo} width={size} height={size} alt="Aguiavitech" />
     </div>
   );
 }
@@ -947,7 +947,7 @@ function Chat({
         {messages.length === 0 ? (
           <div className="chat-empty">
             <div className="chat-empty-icon">
-              <img src={icon} width={64} height={64} alt="" />
+              <img src={aguiavitechLogo} width={64} height={64} alt="Aguiavitech" />
             </div>
             <div className="chat-empty-text">{t("chat.emptyTitle")}</div>
             <div className="chat-empty-hint">{t("chat.emptyHint")}</div>

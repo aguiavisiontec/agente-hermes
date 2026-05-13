@@ -1,13 +1,13 @@
-import icon from "../../assets/icon.png";
+import aguiavitechLogo from "../../assets/aguiavitech-logo.png";
 
 function HermesLogo({ size = 32 }: { size?: number }): React.JSX.Element {
   return (
     <img
-      src={icon}
+      src={aguiavitechLogo}
       width={size}
       height={size}
       className="rounded-xl"
-      alt="Hermes"
+      alt="Aguiavitech"
     />
   );
 }
