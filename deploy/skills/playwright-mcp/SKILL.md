@@ -135,12 +135,6 @@ O Playwright MCP expoe as seguintes ferramentas (nomes exatos podem variar confo
 5. close
 ```
 
-Exemplo de uso direto:
-- Navegue ate a URL alvo
-- Aguarde o conteudo principal carregar
-- Extraia os dados desejados usando seletores CSS
-- Tire screenshot se necessario para documentacao
-
 ### Padrao 2: Preenchimento de Formulario
 
 ```
@@ -258,9 +252,7 @@ Para usar o Playwright MCP em um container Docker, o Dockerfile precisa incluir 
 
 ```dockerfile
 # Adicionar ao Dockerfile existente
-RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install -y nodejs \
-    && npm install -g npx
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash -     && apt-get install -y nodejs     && npm install -g npx
 
 # Instalar dependencias do Playwright Chromium
 RUN npx playwright install chromium --with-deps
@@ -309,7 +301,7 @@ mcp_servers:
 
 5. **Trate erros**: Se um clique falhar, tire screenshot e tente um seletor alternativo antes de desistir.
 
-6. **Limite de tabs**: Nao abra muitas tabs simultaneamente. Cada tab consume memoria. Use e feche conforme necessario.
+6. **Limite de tabs**: Nao abra muitas tabs simultaneamente. Cada tab consome memoria. Use e feche conforme necessario.
 
 7. **Respeite os sites**: Adicione delays entre requisicoes (`evaluate: await new Promise(r => setTimeout(r, 1000))`) para nao sobrecarregar servidores. Siga robots.txt.
 
