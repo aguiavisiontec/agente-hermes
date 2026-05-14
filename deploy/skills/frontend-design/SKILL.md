@@ -15,7 +15,7 @@ metadata:
 
 ## Visao Geral
 
-Este skill guia o agente na criacao de interfaces visuais profissionais, desde prototipos rapidos ate sistemas de design completos. Abrange HTML/CSS/JavaScript, frameworks modernos (React, Next.js, Vue), sistemas de estilizacao (Tailwind CSS, CSS Modules, Styled Components) e princípios de design responsivo e acessivel.
+Este skill guia o agente na criacao de interfaces visuais profissionais, desde prototipos rapidos ate sistemas de design completos. Abrange HTML/CSS/JavaScript, frameworks modernos (React, Next.js, Vue), sistemas de estilizacao (Tailwind CSS, CSS Modules, Styled Components) e principios de design responsivo e acessivel.
 
 O objetivo e produzir interfaces que sejam visualmente atraentes, funcionalmente solidas e tecnicamente bem construidas, seguindo as melhores praticas da industria e os padroes de acessibilidade WCAG.
 
@@ -40,14 +40,14 @@ Use este skill quando:
 
 ### 1. Compreender o Briefing
 
-Antes de escrever qualquer codigo, esclareça:
+Antes de escrever qualquer codigo, esclareca:
 
 - **Objetivo**: Qual e o proposito da interface? (vendas, informacao, dashboard, portfolio)
 - **Publico-alvo**: Quem vai usar? (empresas, consumidores, devs, criancas)
 - **Tom visual**: Formal, casual, ludico, minimalista, corporativo?
 - **Referencias**: Ha algum site ou marca que o usuario quer como inspiracao?
 - **Funcionalidades**: Quais interacoes sao necessarias? (formularios, navegacao, filtros, modais)
-- **Restricoes**: Orçamento, prazo, stack tecnico definido?
+- **Restricoes**: Orcamento, prazo, stack tecnico definido?
 
 ### 2. Planejar a Estrutura
 
@@ -85,11 +85,11 @@ Siga esta ordem de implementacao:
 6. **Responsividade** — Mobile-first breakpoints
 7. **Animacoes** — Micro-interacoes e transicoes
 
-## Princípios de Design
+## Principios de Design
 
 ### Hierarquia Visual
 
-Estabeleça uma hierarquia clara com:
+Estabeleca uma hierarquia clara com:
 
 - **Tamanho**: Elementos maiores = mais importancia
 - **Cor**: Cores vivas para CTAs, tons neutros para fundo
@@ -114,7 +114,7 @@ Cores Neutras:
 - gray-100: #F3F4F6 (fundo alternado)
 - white: #FFFFFF (fundo principal)
 
-Cores Semantica:
+Cores Semanticas:
 - success: #10B981 (verde — confirmacao)
 - warning: #F59E0B (amarelo — alerta)
 - error: #EF4444 (vermelho — erro)
@@ -311,7 +311,6 @@ Use este template como base para landing pages:
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">Recursos poderosos projetados para simplificar seu dia a dia.</p>
       </div>
       <div class="grid md:grid-cols-3 gap-8">
-        <!-- Feature Card (replicar 3x) -->
         <div class="bg-white p-8 rounded-2xl border border-gray-200 hover:border-blue-200 hover:shadow-lg transition-all">
           <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 mb-5">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
