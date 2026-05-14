@@ -1,6 +1,6 @@
 ---
 name: skill-creator
-description: "Use quando o usuário quiser criar, editar ou gerenciar skills do agente. Cria SKILL.md com frontmatter válido, estrutura de diretório e validação."
+description: "Use quando o usuario quiser criar, editar ou gerenciar skills do agente. Cria SKILL.md com frontmatter valido, estrutura de diretorio e validacao."
 version: 1.0.0
 author: Aguiavision Solucoes Tecnologicas com IA
 license: MIT
