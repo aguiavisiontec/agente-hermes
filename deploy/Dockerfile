@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     LC_ALL=pt_BR.UTF-8 \
     HERMES_HOME=/data/hermes
 
-# Instala dependências do sistema
+# Instala dependências do sistema + gosu (para drop de privilégios)
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     curl \
@@ -20,6 +20,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     ripgrep \
     gnupg2 \
+    gosu \
     && sed -i '/pt_BR.UTF-8/s/^# //g' /etc/locale.gen \
     && locale-gen pt_BR.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
@@ -51,8 +52,13 @@ FROM base AS runtime
 COPY --from=builder /opt/hermes-venv /opt/hermes-venv
 COPY --from=builder /opt/hermes /opt/hermes
 
-# Cria diretório de dados e skills
-RUN mkdir -p /data/hermes/profiles /data/hermes/cron /data/hermes/skills
+# Cria o usuário hermes (UID 10000, mesmo padrão do image oficial)
+RUN groupadd -g 10000 hermes \
+    && useradd -u 10000 -g hermes -m -s /bin/bash hermes
+
+# Cria diretório de dados e ajusta permissões
+RUN mkdir -p /data/hermes/profiles /data/hermes/cron /data/hermes/skills \
+    && chown -R hermes:hermes /data/hermes
 
 # Copia skills customizadas da Aguiavision
 COPY deploy/skills/ /data/hermes-skills/
