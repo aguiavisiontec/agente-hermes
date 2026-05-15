@@ -151,8 +151,8 @@ ENVEOF
 # ─────────────────────────────────────────────
 
 # Provedor de inferência padrão
-provider: openrouter
-model: ""
+provider: google
+model: "gemini-2.5-pro-preview-05-06"
 
 # API Server (necessário para o desktop app remoto)
 platforms:
@@ -272,11 +272,15 @@ SOULEOF
     # Corrige permissões após envsubst
     chown hermes:hermes "${HERMES_HOME}/config.yaml" 2>/dev/null || true
 
-    # ── Diagnóstico: verifica se OPENROUTER_API_KEY está disponível ──
+    # ── Diagnóstico: verifica provedores de API disponíveis ──
+    if [ -n "${GOOGLE_API_KEY:-}" ]; then
+        echo "✅ GOOGLE_API_KEY configurada (${#GOOGLE_API_KEY} caracteres)"
+    fi
     if [ -n "${OPENROUTER_API_KEY:-}" ]; then
         echo "✅ OPENROUTER_API_KEY configurada (${#OPENROUTER_API_KEY} caracteres)"
-    else
-        echo "⚠️  OPENROUTER_API_KEY NÃO configurada — configure no .env ou docker-compose"
+    fi
+    if [ -z "${GOOGLE_API_KEY:-}" ] && [ -z "${OPENROUTER_API_KEY:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -z "${OPENAI_API_KEY:-}" ]; then
+        echo "⚠️  NENHUMA chave API configurada — configure no .env ou docker-compose"
     fi
 
     # ── Lista skills instaladas ──
@@ -319,14 +323,14 @@ echo "   HERMES_HOME: ${HERMES_HOME}"
 echo "   API Server: 0.0.0.0:8642"
 echo "   MCP: Playwright (headless Chromium)"
 echo "   Usuário: $(whoami) ($(id -u))"
-if [ -n "${OPENROUTER_API_KEY:-}" ]; then
+if [ -n "${GOOGLE_API_KEY:-}" ]; then
+    echo "   Provedor: Google AI Studio (Gemini) ✅"
+elif [ -n "${OPENROUTER_API_KEY:-}" ]; then
     echo "   Provedor: OpenRouter ✅"
 elif [ -n "${ANTHROPIC_API_KEY:-}" ]; then
     echo "   Provedor: Anthropic ✅"
 elif [ -n "${OPENAI_API_KEY:-}" ]; then
     echo "   Provedor: OpenAI ✅"
-elif [ -n "${GOOGLE_API_KEY:-}" ]; then
-    echo "   Provedor: Google ✅"
 else
     echo "   Provedor: ⚠️ NENHUM configurado"
 fi
