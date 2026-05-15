@@ -7,7 +7,7 @@
   <a href="https://github.com/aguiavisiontec/agente-hermes/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
 </p>
 
-> **Agente IA Aguiavitech** — Fork brasileiro do [Hermes Desktop](https://github.com/fathah/hermes-desktop) com idioma nativo pt-BR, branding personalizado e deploy Docker para VPS. Baseado no [Hermes Agent v0.13.0](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.7) (The Tenacity Release).
+> **Agente IA Aguiavitech** — Versão brasileira do [Hermes Desktop](https://github.com/fathah/hermes-desktop) com idioma nativo pt-BR, branding personalizado e deploy Docker para VPS. Baseado no [Hermes Agent v0.13.0](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.7) (The Tenacity Release).
 
 ## Idiomas
 
@@ -18,7 +18,7 @@ O Agente IA Aguiavitech é um aplicativo desktop nativo para instalar, configura
 
 Em vez de gerenciar a CLI manualmente, o app guia você pela instalação, configuração de provedores e uso diário em um único lugar. Ele utiliza o script oficial de instalação do Hermes, armazena os dados em `~/.hermes`, e oferece uma GUI para chat, sessões, perfis, memória, habilidades, ferramentas, agendamentos, gateways de mensageria e mais.
 
-### Diferenciais do Fork
+### Diferenciais da Versão
 
 - **Idioma pt-BR como padrão** — toda a interface em português brasileiro nativo
 - **Branding Aguiavision Tecnologia** — identidade visual personalizada
@@ -185,7 +185,7 @@ npm run build:linux
 
 - Baseado no [Hermes Desktop](https://github.com/fathah/hermes-desktop) por fathah
 - Motor de agente: [Hermes Agent](https://github.com/NousResearch/hermes-agent) por NousResearch
-- Fork e customização: [Aguiavision Tecnologia](https://aguiavisiontec.cloud)
+- Adaptação e customização: [Aguiavision Tecnologia](https://aguiavisiontec.cloud)
 
 ## Licença
 

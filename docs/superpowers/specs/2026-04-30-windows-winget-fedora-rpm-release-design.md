@@ -203,7 +203,7 @@ softprops/action-gh-release files=artifacts/* (excludes winget/ subdir)
 7. `node scripts/generate-winget-manifests.mjs` against a placeholder `dist/<name>-<version>-setup.exe` (created via `dd if=/dev/urandom of=dist/... bs=1M count=1` to provide arbitrary content) — verifies that the generator produces three valid YAML files with consistent placeholders replaced.
 8. (Optional) `actionlint .github/workflows/release.yml` if installed.
 
-### CI on fork
+### CI on repository
 
 9. Push `feat/winget-rpm-release` to `Aiacos/hermes-desktop`.
 10. Trigger `workflow_dispatch` from the Actions UI on `feat/winget-rpm-release` with `dry_run=true`.

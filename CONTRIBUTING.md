@@ -9,7 +9,7 @@ Thanks for your interest in contributing to Agente Hermes! Whether it's a bug fi
 
 ## Getting Started
 
-1. **Fork** the repository and clone your fork locally.
+1. **Clone** the repository and clone your copy locally.
 2. **Install dependencies:**
 
    ```bash
@@ -43,7 +43,7 @@ Thanks for your interest in contributing to Agente Hermes! Whether it's a bug fi
 
 ## Submitting a Pull Request
 
-1. Push your branch to your fork.
+1. Push your branch to your copy.
 2. Open a pull request against `main` on the upstream repo.
 3. Write a clear description of what you changed and why.
 4. If your PR addresses an open issue, reference it (e.g., `Fixes #42`).
