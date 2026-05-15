@@ -31,12 +31,10 @@ services:
     environment:
       - HERMES_HOME=/data/hermes
       - API_SERVER_KEY=${API_SERVER_KEY:-hermes-aguiavision-2026}
-      # Proxy Anthropic local (já existe na sua stack)
-      - ANTHROPIC_BASE_URL=http://proxy-anthropic:4000
+      # Proxy Anthropic local — descomente se tiver o proxy-anthropic rodando
+      # - ANTHROPIC_BASE_URL=http://proxy-anthropic:4000
     networks:
       - ia-network
-    depends_on:
-      - proxy-anthropic
     healthcheck:
       test: ["CMD", "curl", "-f", "http://127.0.0.1:8642/health"]
       interval: 30s
@@ -47,8 +45,8 @@ services:
       - "com.aguiavision.service=agente-hermes"
       - "com.aguiavision.description=Agente Hermes - Assistente de IA"
 
-  # ── Proxy Anthropic (já existe na sua stack) ──
-  # Descomente APENAS se NÃO tiver o proxy-anthropic rodando
+  # ── Proxy Anthropic ──
+  # Descomente APENAS se tiver o proxy-anthropic e quiser integrar
   # proxy-anthropic:
   #   image: your-proxy-anthropic-image
   #   container_name: proxy-anthropic
