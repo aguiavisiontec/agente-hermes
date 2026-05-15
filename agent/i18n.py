@@ -23,9 +23,9 @@ Language resolution order:
     1. Explicit ``lang=`` argument passed to :func:`t`
     2. ``HERMES_LANGUAGE`` environment variable (for tests / quick override)
     3. ``display.language`` from config.yaml
-    4. ``"en"`` (baseline)
+    4. ``"pt-BR"`` (default)
 
-Supported languages: en, zh, ja, de, es, fr, tr, uk.  Unknown values fall back to en.
+Supported languages: en, zh, ja, de, es, fr, tr, uk, pt-BR.  Unknown values fall back to pt-BR.
 """
 
 from __future__ import annotations
@@ -39,8 +39,11 @@ from typing import Any
 
 logger = logging.getLogger(__name__)
 
-SUPPORTED_LANGUAGES: tuple[str, ...] = ("en", "zh", "ja", "de", "es", "fr", "tr", "uk")
-DEFAULT_LANGUAGE = "en"
+SUPPORTED_LANGUAGES: tuple[str, ...] = ("en", "zh", "ja", "de", "es", "fr", "tr", "uk", "pt-BR")
+DEFAULT_LANGUAGE = "pt-BR"
+
+# Case-insensitive lookup: lowered code → canonical form in SUPPORTED_LANGUAGES.
+_SUPPORTED_LANG_MAP: dict[str, str] = {code.lower(): code for code in SUPPORTED_LANGUAGES}
 
 # Accept a few natural aliases so users who type "chinese" / "zh-CN" / "jp"
 # get the right catalog instead of silently falling back to English.
@@ -53,6 +56,7 @@ _LANGUAGE_ALIASES: dict[str, str] = {
     "french": "fr", "français": "fr", "france": "fr", "fr-fr": "fr", "fr-be": "fr", "fr-ca": "fr", "fr-ch": "fr",
     "ukrainian": "uk", "ukrainisch": "uk", "українська": "uk", "uk-ua": "uk", "ua": "uk",
     "turkish": "tr", "türkçe": "tr", "tr-tr": "tr",
+    "portuguese": "pt-BR", "português": "pt-BR", "portugues": "pt-BR", "pt": "pt-BR", "pt-br": "pt-BR", "br": "pt-BR", "brasileiro": "pt-BR",
 }
 
 _catalog_cache: dict[str, dict[str, str]] = {}
@@ -81,15 +85,14 @@ def _normalize_lang(value: Any) -> str:
     key = value.strip().lower()
     if not key:
         return DEFAULT_LANGUAGE
-    if key in SUPPORTED_LANGUAGES:
-        return key
+    if key in _SUPPORTED_LANG_MAP:
+        return _SUPPORTED_LANG_MAP[key]
     if key in _LANGUAGE_ALIASES:
         return _LANGUAGE_ALIASES[key]
-    # Try stripping a region suffix (e.g. "pt-br" -> "pt" won't be supported,
-    # but "zh-CN" -> "zh" will).
+    # Try stripping a region suffix (e.g. "zh-CN" -> "zh").
     base = key.split("-", 1)[0]
-    if base in SUPPORTED_LANGUAGES:
-        return base
+    if base in _SUPPORTED_LANG_MAP:
+        return _SUPPORTED_LANG_MAP[base]
     return DEFAULT_LANGUAGE
 
 
@@ -202,9 +205,9 @@ def t(key: str, lang: str | None = None, **format_kwargs: Any) -> str:
     catalog = _load_catalog(target)
     value = catalog.get(key)
 
-    if value is None and target != DEFAULT_LANGUAGE:
+    if value is None and target != "en":
         # Fall through to English rather than showing a key path to the user.
-        value = _load_catalog(DEFAULT_LANGUAGE).get(key)
+        value = _load_catalog("en").get(key)
 
     if value is None:
         # Last-ditch: return the key itself.  A broken catalog should not

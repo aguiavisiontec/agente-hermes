@@ -1,157 +1,159 @@
 <p align="center">
-  <img src="assets/banner.png" alt="Hermes Agent" width="100%">
+  <img src="assets/banner.png" alt="Agente Hermes" width="100%">
 </p>
 
-# Hermes Agent ☤
+# Agente Hermes ☤
 
 <p align="center">
-  <a href="https://hermes-agent.nousresearch.com/docs/"><img src="https://img.shields.io/badge/Docs-hermes--agent.nousresearch.com-FFD700?style=for-the-badge" alt="Documentation"></a>
+  <a href="https://github.com/aguiavisiontec/agente-hermes"><img src="https://img.shields.io/badge/Docs-GitHub-FFD700?style=for-the-badge" alt="Documentação"></a>
   <a href="https://discord.gg/NousResearch"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"></a>
-  <a href="https://github.com/NousResearch/hermes-agent/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
-  <a href="https://nousresearch.com"><img src="https://img.shields.io/badge/Built%20by-Nous%20Research-blueviolet?style=for-the-badge" alt="Built by Nous Research"></a>
+  <a href="https://github.com/aguiavisiontec/agente-hermes/blob/main/LICENSE"><img src="https://img.shields.io/badge/Licen%C3%A7a-MIT-green?style=for-the-badge" alt="Licença: MIT"></a>
+  <a href="https://github.com/aguiavisiontec"><img src="https://img.shields.io/badge/Mantido%20por-Aguiavision%20Tecnologia-blueviolet?style=for-the-badge" alt="Mantido por Aguiavision Tecnologia"></a>
   <a href="README.zh-CN.md"><img src="https://img.shields.io/badge/Lang-中文-red?style=for-the-badge" alt="中文"></a>
 </p>
 
-**The self-improving AI agent built by [Nous Research](https://nousresearch.com).** It's the only agent with a built-in learning loop — it creates skills from experience, improves them during use, nudges itself to persist knowledge, searches its own past conversations, and builds a deepening model of who you are across sessions. Run it on a $5 VPS, a GPU cluster, or serverless infrastructure that costs nearly nothing when idle. It's not tied to your laptop — talk to it from Telegram while it works on a cloud VM.
+**O agente de IA com auto-aprimoramento — cria habilidades a partir da experiência, melhora-as durante o uso, e roda em qualquer lugar**
 
-Use any model you want — [Nous Portal](https://portal.nousresearch.com), [OpenRouter](https://openrouter.ai) (200+ models), [NVIDIA NIM](https://build.nvidia.com) (Nemotron), [Xiaomi MiMo](https://platform.xiaomimimo.com), [z.ai/GLM](https://z.ai), [Kimi/Moonshot](https://platform.moonshot.ai), [MiniMax](https://www.minimax.io), [Hugging Face](https://huggingface.co), OpenAI, or your own endpoint. Switch with `hermes model` — no code changes, no lock-in.
+> **Fork:** Este projeto é um fork do [hermes-agent](https://github.com/NousResearch/hermes-agent) v0.13.0, mantido pela [Aguiavision Tecnologia (Aguiavitech)](https://github.com/aguiavisiontec) com o português brasileiro como idioma nativo. O repositório original foi criado pela [Nous Research](https://nousresearch.com); esta versão adapta o projeto para a comunidade brasileira com documentação, suporte e identidade visual em pt-BR.
+
+Use qualquer modelo que desejar — [Nous Portal](https://portal.nousresearch.com), [OpenRouter](https://openrouter.ai) (200+ modelos), [NVIDIA NIM](https://build.nvidia.com) (Nemotron), [Xiaomi MiMo](https://platform.xiaomimimo.com), [z.ai/GLM](https://z.ai), [Kimi/Moonshot](https://platform.moonshot.ai), [MiniMax](https://www.minimax.io), [Hugging Face](https://huggingface.co), OpenAI, ou seu próprio endpoint. Troque com `hermes model` — sem mudança de código, sem lock-in.
 
 <table>
-<tr><td><b>A real terminal interface</b></td><td>Full TUI with multiline editing, slash-command autocomplete, conversation history, interrupt-and-redirect, and streaming tool output.</td></tr>
-<tr><td><b>Lives where you do</b></td><td>Telegram, Discord, Slack, WhatsApp, Signal, and CLI — all from a single gateway process. Voice memo transcription, cross-platform conversation continuity.</td></tr>
-<tr><td><b>A closed learning loop</b></td><td>Agent-curated memory with periodic nudges. Autonomous skill creation after complex tasks. Skills self-improve during use. FTS5 session search with LLM summarization for cross-session recall. <a href="https://github.com/plastic-labs/honcho">Honcho</a> dialectic user modeling. Compatible with the <a href="https://agentskills.io">agentskills.io</a> open standard.</td></tr>
-<tr><td><b>Scheduled automations</b></td><td>Built-in cron scheduler with delivery to any platform. Daily reports, nightly backups, weekly audits — all in natural language, running unattended.</td></tr>
-<tr><td><b>Delegates and parallelizes</b></td><td>Spawn isolated subagents for parallel workstreams. Write Python scripts that call tools via RPC, collapsing multi-step pipelines into zero-context-cost turns.</td></tr>
-<tr><td><b>Runs anywhere, not just your laptop</b></td><td>Seven terminal backends — local, Docker, SSH, Singularity, Modal, Daytona, and Vercel Sandbox. Daytona and Modal offer serverless persistence — your agent's environment hibernates when idle and wakes on demand, costing nearly nothing between sessions. Run it on a $5 VPS or a GPU cluster.</td></tr>
-<tr><td><b>Research-ready</b></td><td>Batch trajectory generation, Atropos RL environments, trajectory compression for training the next generation of tool-calling models.</td></tr>
+<tr><td><b>Interface de terminal de verdade</b></td><td>TUI completa com edição multilinha, autocompletar de comandos com barra, histórico de conversas, interrupção-e-redirecionamento e saída de ferramentas em streaming.</td></tr>
+<tr><td><b>Vive onde você vive</b></td><td>Telegram, Discord, Slack, WhatsApp, Signal e CLI — tudo a partir de um único processo de gateway. Transcrição de memorandos de voz, continuidade de conversas entre plataformas.</td></tr>
+<tr><td><b>Um ciclo fechado de aprendizado</b></td><td>Memória curada pelo agente com lembretes periódicos. Criação autônoma de habilidades após tarefas complexas. Habilidades se auto-aprimoram durante o uso. Busca de sessões FTS5 com sumarização via LLM para recuperação entre sessões. Modelagem de usuário dialética <a href="https://github.com/plastic-labs/honcho">Honcho</a>. Compatível com o padrão aberto <a href="https://agentskills.io">agentskills.io</a>.</td></tr>
+<tr><td><b>Automações agendadas</b></td><td>Agendador cron integrado com entrega em qualquer plataforma. Relatórios diários, backups noturnos, auditorias semanais — tudo em linguagem natural, rodando sem supervisão.</td></tr>
+<tr><td><b>Delega e paraleliza</b></td><td>Gere subagentes isolados para fluxos de trabalho paralelos. Escreva scripts Python que chamam ferramentas via RPC, colapsando pipelines de múltiplas etapas em turnos com custo de contexto zero.</td></tr>
+<tr><td><b>Roda em qualquer lugar, não apenas no seu notebook</b></td><td>Sete backends de terminal — local, Docker, SSH, Singularity, Modal, Daytona e Vercel Sandbox. Daytona e Modal oferecem persistência serverless — o ambiente do seu agente hiberna quando ocioso e desperta sob demanda, custando quase nada entre sessões. Rode em uma VPS de US$ 5 ou em um cluster de GPU.</td></tr>
+<tr><td><b>Pronto para pesquisa</b></td><td>Geração de trajetórias em lote, ambientes Atropos RL, compressão de trajetórias para treinar a próxima geração de modelos com chamada de ferramentas.</td></tr>
 </table>
 
 ---
 
-## Quick Install
+## Instalação Rápida
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/aguiavisiontec/agente-hermes/main/scripts/install.sh | bash
 ```
 
-Works on Linux, macOS, WSL2, and Android via Termux. The installer handles the platform-specific setup for you.
+Funciona no Linux, macOS, WSL2 e Android via Termux. O instalador cuida da configuração específica de cada plataforma.
 
-> **Android / Termux:** The tested manual path is documented in the [Termux guide](https://hermes-agent.nousresearch.com/docs/getting-started/termux). On Termux, Hermes installs a curated `.[termux]` extra because the full `.[all]` extra currently pulls Android-incompatible voice dependencies.
+> **Android / Termux:** O caminho manual testado está documentado no [guia Termux](https://github.com/aguiavisiontec/agente-hermes). No Termux, o Hermes instala a extensão curada `.[termux]` porque a extensão completa `.[all]` atualmente puxa dependências de voz incompatíveis com Android.
 >
-> **Windows:** Native Windows is not supported. Please install [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install) and run the command above.
+> **Windows:** Windows nativo não é suportado. Por favor, instale o [WSL2](https://learn.microsoft.com/pt-br/windows/wsl/install) e execute o comando acima.
 
-After installation:
+Após a instalação:
 
 ```bash
-source ~/.bashrc    # reload shell (or: source ~/.zshrc)
-hermes              # start chatting!
+source ~/.bashrc    # recarregue o shell (ou: source ~/.zshrc)
+hermes              # comece a conversar!
 ```
 
 ---
 
-## Getting Started
+## Primeiros Passos
 
 ```bash
-hermes              # Interactive CLI — start a conversation
-hermes model        # Choose your LLM provider and model
-hermes tools        # Configure which tools are enabled
-hermes config set   # Set individual config values
-hermes gateway      # Start the messaging gateway (Telegram, Discord, etc.)
-hermes setup        # Run the full setup wizard (configures everything at once)
-hermes claw migrate # Migrate from OpenClaw (if coming from OpenClaw)
-hermes update       # Update to the latest version
-hermes doctor       # Diagnose any issues
+hermes              # CLI interativo — inicie uma conversa
+hermes model        # Escolha seu provedor e modelo LLM
+hermes tools        # Configure quais ferramentas estão habilitadas
+hermes config set   # Defina valores individuais de configuração
+hermes gateway      # Inicie o gateway de mensagens (Telegram, Discord, etc.)
+hermes setup        # Execute o assistente de configuração completo (configura tudo de uma vez)
+hermes claw migrate # Migre do OpenClaw (se estiver vindo do OpenClaw)
+hermes update       # Atualize para a versão mais recente
+hermes doctor       # Diagnostique quaisquer problemas
 ```
 
-📖 **[Full documentation →](https://hermes-agent.nousresearch.com/docs/)**
+📖 **[Documentação completa →](https://github.com/aguiavisiontec/agente-hermes)**
 
-## CLI vs Messaging Quick Reference
+## Referência Rápida: CLI vs Mensageiros
 
-Hermes has two entry points: start the terminal UI with `hermes`, or run the gateway and talk to it from Telegram, Discord, Slack, WhatsApp, Signal, or Email. Once you're in a conversation, many slash commands are shared across both interfaces.
+O Hermes tem dois pontos de entrada: inicie a interface de terminal com `hermes`, ou rode o gateway e converse pelo Telegram, Discord, Slack, WhatsApp, Signal ou Email. Depois de entrar em uma conversa, muitos comandos com barra são compartilhados entre ambas as interfaces.
 
-| Action | CLI | Messaging platforms |
+| Ação | CLI | Plataformas de mensagens |
 |---------|-----|---------------------|
-| Start chatting | `hermes` | Run `hermes gateway setup` + `hermes gateway start`, then send the bot a message |
-| Start fresh conversation | `/new` or `/reset` | `/new` or `/reset` |
-| Change model | `/model [provider:model]` | `/model [provider:model]` |
-| Set a personality | `/personality [name]` | `/personality [name]` |
-| Retry or undo the last turn | `/retry`, `/undo` | `/retry`, `/undo` |
-| Compress context / check usage | `/compress`, `/usage`, `/insights [--days N]` | `/compress`, `/usage`, `/insights [days]` |
-| Browse skills | `/skills` or `/<skill-name>` | `/<skill-name>` |
-| Interrupt current work | `Ctrl+C` or send a new message | `/stop` or send a new message |
-| Platform-specific status | `/platforms` | `/status`, `/sethome` |
+| Começar a conversar | `hermes` | Execute `hermes gateway setup` + `hermes gateway start`, então envie uma mensagem ao bot |
+| Iniciar conversa nova | `/new` ou `/reset` | `/new` ou `/reset` |
+| Trocar modelo | `/model [provider:model]` | `/model [provider:model]` |
+| Definir personalidade | `/personality [name]` | `/personality [name]` |
+| Retentar ou desfazer o último turno | `/retry`, `/undo` | `/retry`, `/undo` |
+| Comprimir contexto / ver uso | `/compress`, `/usage`, `/insights [--days N]` | `/compress`, `/usage`, `/insights [days]` |
+| Navegar habilidades | `/skills` ou `/<skill-name>` | `/<skill-name>` |
+| Interromper trabalho atual | `Ctrl+C` ou envie uma nova mensagem | `/stop` ou envie uma nova mensagem |
+| Status específico da plataforma | `/platforms` | `/status`, `/sethome` |
 
-For the full command lists, see the [CLI guide](https://hermes-agent.nousresearch.com/docs/user-guide/cli) and the [Messaging Gateway guide](https://hermes-agent.nousresearch.com/docs/user-guide/messaging).
+Para a lista completa de comandos, consulte o [guia CLI](https://github.com/aguiavisiontec/agente-hermes) e o [guia do Gateway de Mensagens](https://github.com/aguiavisiontec/agente-hermes).
 
 ---
 
-## Documentation
+## Documentação
 
-All documentation lives at **[hermes-agent.nousresearch.com/docs](https://hermes-agent.nousresearch.com/docs/)**:
+Toda a documentação está disponível em **[github.com/aguiavisiontec/agente-hermes](https://github.com/aguiavisiontec/agente-hermes)**:
 
-| Section | What's Covered |
+| Seção | O que é abordado |
 |---------|---------------|
-| [Quickstart](https://hermes-agent.nousresearch.com/docs/getting-started/quickstart) | Install → setup → first conversation in 2 minutes |
-| [CLI Usage](https://hermes-agent.nousresearch.com/docs/user-guide/cli) | Commands, keybindings, personalities, sessions |
-| [Configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration) | Config file, providers, models, all options |
-| [Messaging Gateway](https://hermes-agent.nousresearch.com/docs/user-guide/messaging) | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant |
-| [Security](https://hermes-agent.nousresearch.com/docs/user-guide/security) | Command approval, DM pairing, container isolation |
-| [Tools & Toolsets](https://hermes-agent.nousresearch.com/docs/user-guide/features/tools) | 40+ tools, toolset system, terminal backends |
-| [Skills System](https://hermes-agent.nousresearch.com/docs/user-guide/features/skills) | Procedural memory, Skills Hub, creating skills |
-| [Memory](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory) | Persistent memory, user profiles, best practices |
-| [MCP Integration](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp) | Connect any MCP server for extended capabilities |
-| [Cron Scheduling](https://hermes-agent.nousresearch.com/docs/user-guide/features/cron) | Scheduled tasks with platform delivery |
-| [Context Files](https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files) | Project context that shapes every conversation |
-| [Architecture](https://hermes-agent.nousresearch.com/docs/developer-guide/architecture) | Project structure, agent loop, key classes |
-| [Contributing](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing) | Development setup, PR process, code style |
-| [CLI Reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands) | All commands and flags |
-| [Environment Variables](https://hermes-agent.nousresearch.com/docs/reference/environment-variables) | Complete env var reference |
+| [Início rápido](https://github.com/aguiavisiontec/agente-hermes) | Instalar → configurar → primeira conversa em 2 minutos |
+| [Uso do CLI](https://github.com/aguiavisiontec/agente-hermes) | Comandos, atalhos de teclado, personalidades, sessões |
+| [Configuração](https://github.com/aguiavisiontec/agente-hermes) | Arquivo de configuração, provedores, modelos, todas as opções |
+| [Gateway de Mensagens](https://github.com/aguiavisiontec/agente-hermes) | Telegram, Discord, Slack, WhatsApp, Signal, Home Assistant |
+| [Segurança](https://github.com/aguiavisiontec/agente-hermes) | Aprovação de comandos, emparelhamento DM, isolamento de container |
+| [Ferramentas e Toolsets](https://github.com/aguiavisiontec/agente-hermes) | 40+ ferramentas, sistema de toolsets, backends de terminal |
+| [Sistema de Habilidades](https://github.com/aguiavisiontec/agente-hermes) | Memória procedural, Skills Hub, criação de habilidades |
+| [Memória](https://github.com/aguiavisiontec/agente-hermes) | Memória persistente, perfis de usuário, melhores práticas |
+| [Integração MCP](https://github.com/aguiavisiontec/agente-hermes) | Conecte qualquer servidor MCP para capacidades estendidas |
+| [Agendamento Cron](https://github.com/aguiavisiontec/agente-hermes) | Tarefas agendadas com entrega por plataforma |
+| [Arquivos de Contexto](https://github.com/aguiavisiontec/agente-hermes) | Contexto de projeto que molda cada conversa |
+| [Arquitetura](https://github.com/aguiavisiontec/agente-hermes) | Estrutura do projeto, loop do agente, classes principais |
+| [Contribuindo](https://github.com/aguiavisiontec/agente-hermes) | Configuração de desenvolvimento, processo de PR, estilo de código |
+| [Referência CLI](https://github.com/aguiavisiontec/agente-hermes) | Todos os comandos e flags |
+| [Variáveis de Ambiente](https://github.com/aguiavisiontec/agente-hermes) | Referência completa de variáveis de ambiente |
 
 ---
 
-## Migrating from OpenClaw
+## Migrando do OpenClaw
 
-If you're coming from OpenClaw, Hermes can automatically import your settings, memories, skills, and API keys.
+Se você está vindo do OpenClaw, o Hermes pode importar automaticamente suas configurações, memórias, habilidades e chaves de API.
 
-**During first-time setup:** The setup wizard (`hermes setup`) automatically detects `~/.openclaw` and offers to migrate before configuration begins.
+**Durante a primeira configuração:** O assistente de configuração (`hermes setup`) detecta automaticamente `~/.openclaw` e oferece a migração antes que a configuração comece.
 
-**Anytime after install:**
+**A qualquer momento após a instalação:**
 
 ```bash
-hermes claw migrate              # Interactive migration (full preset)
-hermes claw migrate --dry-run    # Preview what would be migrated
-hermes claw migrate --preset user-data   # Migrate without secrets
-hermes claw migrate --overwrite  # Overwrite existing conflicts
+hermes claw migrate              # Migração interativa (preset completo)
+hermes claw migrate --dry-run    # Pré-visualizar o que seria migrado
+hermes claw migrate --preset user-data   # Migrar sem segredos
+hermes claw migrate --overwrite  # Sobrescrever conflitos existentes
 ```
 
-What gets imported:
-- **SOUL.md** — persona file
-- **Memories** — MEMORY.md and USER.md entries
-- **Skills** — user-created skills → `~/.hermes/skills/openclaw-imports/`
-- **Command allowlist** — approval patterns
-- **Messaging settings** — platform configs, allowed users, working directory
-- **API keys** — allowlisted secrets (Telegram, OpenRouter, OpenAI, Anthropic, ElevenLabs)
-- **TTS assets** — workspace audio files
-- **Workspace instructions** — AGENTS.md (with `--workspace-target`)
+O que é importado:
+- **SOUL.md** — arquivo de persona
+- **Memórias** — entradas MEMORY.md e USER.md
+- **Habilidades** — habilidades criadas pelo usuário → `~/.hermes/skills/openclaw-imports/`
+- **Lista de comandos permitidos** — padrões de aprovação
+- **Configurações de mensagens** — configurações de plataforma, usuários permitidos, diretório de trabalho
+- **Chaves de API** — segredos permitidos (Telegram, OpenRouter, OpenAI, Anthropic, ElevenLabs)
+- **Ativos de TTS** — arquivos de áudio do workspace
+- **Instruções do workspace** — AGENTS.md (com `--workspace-target`)
 
-See `hermes claw migrate --help` for all options, or use the `openclaw-migration` skill for an interactive agent-guided migration with dry-run previews.
+Veja `hermes claw migrate --help` para todas as opções, ou use a habilidade `openclaw-migration` para uma migração interativa guiada pelo agente com pré-visualizações de dry-run.
 
 ---
 
-## Contributing
+## Contribuindo
 
-We welcome contributions! See the [Contributing Guide](https://hermes-agent.nousresearch.com/docs/developer-guide/contributing) for development setup, code style, and PR process.
+Contribuições são bem-vindas! Veja o [Guia de Contribuição](https://github.com/aguiavisiontec/agente-hermes/blob/main/CONTRIBUTING.md) para configuração de desenvolvimento, estilo de código e processo de PR.
 
-Quick start for contributors — clone and go with `setup-hermes.sh`:
+Início rápido para contribuidores — clone e execute com `setup-hermes.sh`:
 
 ```bash
-git clone https://github.com/NousResearch/hermes-agent.git
-cd hermes-agent
-./setup-hermes.sh     # installs uv, creates venv, installs .[all], symlinks ~/.local/bin/hermes
-./hermes              # auto-detects the venv, no need to `source` first
+git clone https://github.com/aguiavisiontec/agente-hermes.git
+cd agente-hermes
+./setup-hermes.sh     # instala uv, cria venv, instala .[all], cria symlink ~/.local/bin/hermes
+./hermes              # auto-detecta o venv, não precisa de `source` antes
 ```
 
-Manual path (equivalent to the above):
+Caminho manual (equivalente ao acima):
 
 ```bash
 curl -LsSf https://astral.sh/uv/install.sh | sh
@@ -161,21 +163,21 @@ uv pip install -e ".[all,dev]"
 scripts/run_tests.sh
 ```
 
-> **RL Training (optional):** The RL/Atropos integration (`environments/`) — see [`CONTRIBUTING.md`](https://github.com/NousResearch/hermes-agent/blob/main/CONTRIBUTING.md#development-setup) for the full setup.
+> **Treinamento RL (opcional):** A integração RL/Atropos (`environments/`) — veja [`CONTRIBUTING.md`](https://github.com/aguiavisiontec/agente-hermes/blob/main/CONTRIBUTING.md) para a configuração completa.
 
 ---
 
-## Community
+## Comunidade
 
 - 💬 [Discord](https://discord.gg/NousResearch)
 - 📚 [Skills Hub](https://agentskills.io)
-- 🐛 [Issues](https://github.com/NousResearch/hermes-agent/issues)
-- 🔌 [HermesClaw](https://github.com/AaronWong1999/hermesclaw) — Community WeChat bridge: Run Hermes Agent and OpenClaw on the same WeChat account.
+- 🐛 [Issues](https://github.com/aguiavisiontec/agente-hermes/issues)
+- 🔌 [HermesClaw](https://github.com/AaronWong1999/hermesclaw) — Ponte WeChat da comunidade: rode o Agente Hermes e o OpenClaw na mesma conta WeChat.
 
 ---
 
-## License
+## Licença
 
-MIT — see [LICENSE](LICENSE).
+MIT — veja [LICENSE](LICENSE).
 
-Built by [Nous Research](https://nousresearch.com).
+Mantido por [Aguiavision Tecnologia](https://github.com/aguiavisiontec). Fork do [hermes-agent](https://github.com/NousResearch/hermes-agent) da [Nous Research](https://nousresearch.com).

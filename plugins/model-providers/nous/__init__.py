@@ -12,7 +12,7 @@ class NousProfile(ProviderProfile):
     def build_extra_body(
         self, *, session_id: str | None = None, **context
     ) -> dict[str, Any]:
-        return {"tags": ["product=hermes-agent"]}
+        return {"tags": ["product=agente-hermes"]}
 
     def build_api_kwargs_extras(
         self,

@@ -31,7 +31,7 @@ logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).parent.parent.resolve()
 
-_DOCS_BASE = "https://hermes-agent.nousresearch.com/docs"
+_DOCS_BASE = "https://github.com/aguiavisiontec/agente-hermes"
 
 
 def _model_config_dict(config: Dict[str, Any]) -> Dict[str, Any]:
@@ -1563,7 +1563,7 @@ def setup_terminal_backend(config: dict):
     elif selected_backend == "vercel_sandbox":
         print_success("Terminal backend: Vercel Sandbox")
         print_info("Cloud microVM sandboxes with snapshot-backed filesystem persistence.")
-        print_info("Requires the optional SDK: pip install 'hermes-agent[vercel]'")
+        print_info("Requires the optional SDK: pip install 'agente-hermes[vercel]'")
 
         try:
             __import__("vercel")
@@ -1587,7 +1587,7 @@ def setup_terminal_backend(config: dict):
             if result.returncode == 0:
                 print_success("vercel SDK installed")
             else:
-                print_warning("Install failed — run manually: pip install 'hermes-agent[vercel]'")
+                print_warning("Install failed — run manually: pip install 'agente-hermes[vercel]'")
                 if result.stderr:
                     print_info(f"  Error: {result.stderr.strip().splitlines()[-1]}")
 

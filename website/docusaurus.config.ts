@@ -10,8 +10,8 @@ const config: Config = {
   url: 'https://hermes-agent.nousresearch.com',
   baseUrl: '/docs/',
 
-  organizationName: 'NousResearch',
-  projectName: 'hermes-agent',
+  organizationName: 'aguiavisiontec',
+  projectName: 'agente-hermes',
 
   onBrokenLinks: 'warn',
 
@@ -73,7 +73,7 @@ const config: Config = {
         docs: {
           routeBasePath: '/',  // Docs at the root of /docs/
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/NousResearch/hermes-agent/edit/main/website/',
+          editUrl: 'https://github.com/aguiavisiontec/agente-hermes/edit/main/website/',
         },
         blog: false,
         theme: {
@@ -123,7 +123,7 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://github.com/NousResearch/hermes-agent',
+          href: 'https://github.com/aguiavisiontec/agente-hermes',
           label: 'GitHub',
           position: 'right',
         },
@@ -150,19 +150,19 @@ const config: Config = {
           title: 'Community',
           items: [
             { label: 'Discord', href: 'https://discord.gg/NousResearch' },
-            { label: 'GitHub Discussions', href: 'https://github.com/NousResearch/hermes-agent/discussions' },
+            { label: 'GitHub Discussions', href: 'https://github.com/aguiavisiontec/agente-hermes/discussions' },
             { label: 'Skills Hub', href: 'https://agentskills.io' },
           ],
         },
         {
           title: 'More',
           items: [
-            { label: 'GitHub', href: 'https://github.com/NousResearch/hermes-agent' },
-            { label: 'Nous Research', href: 'https://nousresearch.com' },
+            { label: 'GitHub', href: 'https://github.com/aguiavisiontec/agente-hermes' },
+            { label: 'Aguiavision Tecnologia', href: 'https://github.com/aguiavisiontec' },
           ],
         },
       ],
-      copyright: `Built by <a href="https://nousresearch.com">Nous Research</a> · MIT License · ${new Date().getFullYear()}`,
+      copyright: `Mantido por <a href="https://github.com/aguiavisiontec">Aguiavision Tecnologia</a> · Fork do <a href="https://nousresearch.com">Nous Research</a> · MIT License · ${new Date().getFullYear()}`,
     },
     prism: {
       theme: prismThemes.github,

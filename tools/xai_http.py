@@ -9,4 +9,4 @@ def hermes_xai_user_agent() -> str:
         from hermes_cli import __version__
     except Exception:
         __version__ = "unknown"
-    return f"Hermes-Agent/{__version__}"
+    return f"Agente-Hermes/{__version__}"

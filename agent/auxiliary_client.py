@@ -309,8 +309,8 @@ _PROVIDERS_WITHOUT_VISION: frozenset = frozenset({
 # `X-Title` is the canonical attribution header OpenRouter's dashboard
 # reads; the previous `X-OpenRouter-Title` label was not recognized there.
 _OR_HEADERS_BASE = {
-    "HTTP-Referer": "https://hermes-agent.nousresearch.com",
-    "X-Title": "Hermes Agent",
+    "HTTP-Referer": "https://github.com/aguiavisiontec/agente-hermes",
+    "X-Title": "Agente Hermes",
     "X-OpenRouter-Categories": "productivity,cli-agent",
 }
 
@@ -374,9 +374,9 @@ def build_or_headers(or_config: dict | None = None) -> dict:
 from hermes_cli import __version__ as _HERMES_VERSION
 
 _AI_GATEWAY_HEADERS = {
-    "HTTP-Referer": "https://hermes-agent.nousresearch.com",
-    "X-Title": "Hermes Agent",
-    "User-Agent": f"HermesAgent/{_HERMES_VERSION}",
+    "HTTP-Referer": "https://github.com/aguiavisiontec/agente-hermes",
+    "X-Title": "Agente Hermes",
+    "User-Agent": f"AgenteHermes/{_HERMES_VERSION}",
 }
 
 # Nous Portal extra_body for product attribution.

@@ -2,18 +2,21 @@ import { createContext, useContext, useState, useCallback, type ReactNode } from
 import type { Locale, Translations } from "./types";
 import { en } from "./en";
 import { zh } from "./zh";
+import { ptBR } from "./pt-BR";
 
-const TRANSLATIONS: Record<Locale, Translations> = { en, zh };
+const TRANSLATIONS: Record<Locale, Translations> = { en, zh, "pt-BR": ptBR };
 const STORAGE_KEY = "hermes-locale";
+
+const ALL_LOCALES: Locale[] = ["pt-BR", "en", "zh"];
 
 function getInitialLocale(): Locale {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored === "en" || stored === "zh") return stored;
+    if (stored === "pt-BR" || stored === "en" || stored === "zh") return stored;
   } catch {
     // SSR or privacy mode
   }
-  return "en";
+  return "pt-BR";
 }
 
 interface I18nContextValue {
@@ -23,9 +26,9 @@ interface I18nContextValue {
 }
 
 const I18nContext = createContext<I18nContextValue>({
-  locale: "en",
+  locale: "pt-BR",
   setLocale: () => {},
-  t: en,
+  t: ptBR,
 });
 
 export function I18nProvider({ children }: { children: ReactNode }) {
@@ -56,3 +59,5 @@ export function I18nProvider({ children }: { children: ReactNode }) {
 export function useI18n() {
   return useContext(I18nContext);
 }
+
+export { ALL_LOCALES };
