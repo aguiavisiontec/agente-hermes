@@ -153,7 +153,7 @@ ENVEOF
 
 # Provedor de inferência padrão
 provider: google
-model: "gemini-2.5-pro-preview-05-06"
+model: "gemini-2.0-flash"
 
 # API Server (necessário para o desktop app remoto)
 platforms:
