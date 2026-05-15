@@ -1,17 +1,17 @@
 # Generated from this template by scripts/generate-winget-manifests.mjs.
-PackageIdentifier: NousResearch.HermesDesktop
+PackageIdentifier: Aguiavisiontec.AgenteHermes
 PackageVersion: {{VERSION}}
 PackageLocale: en-US
-Publisher: Nous Research
-PublisherUrl: https://github.com/fathah/hermes-desktop
-PublisherSupportUrl: https://github.com/fathah/hermes-desktop/issues
-PackageName: Hermes Agent
-PackageUrl: https://github.com/fathah/hermes-desktop
+Publisher: Aguiavision Tecnologia
+PublisherUrl: https://github.com/aguiavisiontec/agente-hermes
+PublisherSupportUrl: https://github.com/aguiavisiontec/agente-hermes/issues
+PackageName: Agente Hermes
+PackageUrl: https://github.com/aguiavisiontec/agente-hermes
 License: MIT
-LicenseUrl: https://github.com/fathah/hermes-desktop/blob/main/LICENSE
+LicenseUrl: https://github.com/aguiavisiontec/agente-hermes/blob/main/LICENSE
 ShortDescription: Self-improving AI assistant desktop app
 Description: |-
-  Hermes Desktop is a native desktop app for installing, configuring, and chatting
+  Agente Hermes is a native desktop app for installing, configuring, and chatting
   with Hermes Agent — a self-improving AI assistant with tool use, multi-platform
   messaging, and a closed learning loop.
 Tags:

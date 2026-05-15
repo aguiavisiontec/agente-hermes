@@ -1,6 +1,6 @@
 {
   "name": "agente-aguiavitech",
-  "version": "0.4.1",
+  "version": "0.13.0",
   "description": "Agente IA Aguiavitech — assistente de IA com auto-aprimoramento",
   "main": "./out/main/index.js",
   "author": "Aguiavitech",

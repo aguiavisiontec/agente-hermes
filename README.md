@@ -25,7 +25,7 @@ Em vez de gerenciar a CLI manualmente, o app guia você pela instalação, confi
 - **Deploy Docker para VPS** — configuração completa com `docker-compose.yml` e `entrypoint.sh`
 - **Skills customizadas** — skill-creator, frontend-design, playwright-mcp pré-instaladas
 - **SOUL.md com persona Aguiavision** — personalidade do agente em pt-BR
-- **Segurança atualizada** — todas as correções de segurança do upstream v0.4.1 incluídas
+- **Segurança atualizada** — todas as correções de segurança do upstream incluídas
 
 ## Instalação
 
