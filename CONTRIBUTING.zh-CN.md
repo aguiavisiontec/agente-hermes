@@ -1,6 +1,6 @@
-# 为 Hermes Desktop 做贡献
+# 为 Agente Hermes 做贡献
 
-感谢你愿意为 Hermes Desktop 做出贡献。无论是修复 bug、添加新功能、完善文档，还是修正一个拼写错误，每一份贡献都很有价值。
+感谢你愿意为 Agente Hermes 做出贡献。无论是修复 bug、添加新功能、完善文档，还是修正一个拼写错误，每一份贡献都很有价值。
 
 ## 语言
 
@@ -9,7 +9,7 @@
 
 ## 快速开始
 
-1. **Fork** 本仓库，并将你的 fork 克隆到本地。
+1. **克隆** 本仓库，并将你的副本克隆到本地。
 2. **安装依赖：**
 
    ```bash
@@ -43,7 +43,7 @@
 
 ## 提交 Pull Request
 
-1. 将分支推送到你的 fork。
+1. 将分支推送到你的副本。
 2. 在上游仓库中向 `main` 发起 Pull Request。
 3. 清楚描述你改了什么，以及为什么这样改。
 4. 如果你的 PR 解决了某个已有 issue，请在描述中引用它（例如：`Fixes #42`）。
@@ -52,7 +52,7 @@
 
 ## 报告 Bug
 
-如果你发现了 bug，请在 GitHub 上 [提交 issue](https://github.com/NousResearch/hermes-desktop/issues/new)，并尽量包含：
+如果你发现了 bug，请在 GitHub 上 [提交 issue](https://github.com/aguiavisiontec/agente-hermes/issues/new)，并尽量包含：
 
 - 清晰的标题和描述
 - 复现步骤
@@ -61,7 +61,7 @@
 
 ## 功能请求
 
-如果你有新想法，也欢迎 [提交 issue](https://github.com/NousResearch/hermes-desktop/issues/new)，并描述：
+如果你有新想法，也欢迎 [提交 issue](https://github.com/aguiavisiontec/agente-hermes/issues/new)，并描述：
 
 - 你想解决的问题
 - 你希望它如何工作

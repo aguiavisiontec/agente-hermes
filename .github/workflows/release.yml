@@ -191,7 +191,7 @@ jobs:
       - name: Generate winget manifests
         env:
           VERSION: ${{ needs.prepare.outputs.version }}
-          PUBLISH_OWNER: fathah
+          PUBLISH_OWNER: aguiavisiontec
         run: node scripts/generate-winget-manifests.mjs
 
       - name: Upload winget manifests artifact
@@ -237,7 +237,7 @@ jobs:
             .readdirSync(artifactsDir)
             .filter(
               (name) =>
-                name.startsWith(`hermes-desktop-${version}-`) &&
+                name.startsWith(`agente-aguiavitech-${version}-`) &&
                 name.endsWith("-mac.zip"),
             )
             .sort((a, b) => {
@@ -290,7 +290,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.prepare.outputs.tag }}
-          name: Hermes Desktop ${{ needs.prepare.outputs.tag }}
+          name: Agente Hermes ${{ needs.prepare.outputs.tag }} — Aguiavision Tecnologia
           generate_release_notes: true
           files: |
             artifacts/*.dmg
