@@ -11,6 +11,6 @@ export default {
   thisWeek: "Esta Semana",
   earlier: "Mais antigo",
   emptyHint: "Comece a conversar para criar sua primeira sessão",
-  messages: "msgs",
+  messages: "msg",
   messageSingular: "msg",
 } as const;

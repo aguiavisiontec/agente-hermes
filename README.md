@@ -1,189 +1,139 @@
-<div align="center">
-
-<img width="100%" alt="Agente Hermes — Aguiavision Tecnologia" src="docs/hermes-br-banner.png" />
+<img width="100%" alt="AGENTE IA AGUIAVITECH" src="https://github.com/user-attachments/assets/80585955-3bae-4aee-af90-a1e61757ccb8" />
 
 <br/>
-<br/>
+<p align="center">
+  <a href="https://aguiavisiontec.cloud"><img src="https://img.shields.io/badge/Site-Aguiavision_Tecnologia-FFD700?style=for-the-badge" alt="Aguiavision Tecnologia"></a>
+  <a href="https://github.com/aguiavisiontec/agente-hermes/releases/"><img src="https://img.shields.io/badge/Download-Releases-FF6600?style=for-the-badge" alt="Releases"></a>
+  <a href="https://github.com/aguiavisiontec/agente-hermes/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License: MIT"></a>
+</p>
 
-**Desktop AI Workspace para o Brasil**
+> **Agente IA Aguiavitech** — Fork brasileiro do [Hermes Desktop](https://github.com/fathah/hermes-desktop) com idioma nativo pt-BR, branding personalizado e deploy Docker para VPS. Baseado no [Hermes Agent v0.13.0](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.5.7) (The Tenacity Release).
 
-*Plataforma de agentes de IA pela Aguiavision Tecnologia — completa, poderosa e 100% em português.*
+## Idiomas
 
-<br/>
+- Português (Brasil): `README.md` (este arquivo)
+- 简体中文: `README.zh-CN.md`
 
-<a href="https://github.com/aguiavisiontec/agente-hermes/releases"><img src="https://img.shields.io/badge/Versão-v0.3.7-FFD700?style=for-the-badge" alt="Version"></a>
-<a href="https://github.com/aguiavisiontec/agente-hermes"><img src="https://img.shields.io/badge/Aguiavision-Tecnologia-222222?style=for-the-badge&logo=github" alt="Aguiavision"></a>
-<img src="https://img.shields.io/badge/Idioma-pt--BR-009739?style=for-the-badge&logo=flag&logoColor=white" alt="pt-BR">
-<img src="https://img.shields.io/badge/Licença-MIT-green?style=for-the-badge" alt="License: MIT">
+O Agente IA Aguiavitech é um aplicativo desktop nativo para instalar, configurar e conversar com o [Hermes Agent](https://github.com/NousResearch/hermes-agent) — um assistente de IA com auto-aprimoramento, uso de ferramentas, mensageria multi-plataforma e ciclo de aprendizado fechado.
 
-<br/>
-<br/>
+Em vez de gerenciar a CLI manualmente, o app guia você pela instalação, configuração de provedores e uso diário em um único lugar. Ele utiliza o script oficial de instalação do Hermes, armazena os dados em `~/.hermes`, e oferece uma GUI para chat, sessões, perfis, memória, habilidades, ferramentas, agendamentos, gateways de mensageria e mais.
 
-🇧🇷 **Feito para brasileiros. Pensado para o futuro.**
+### Diferenciais do Fork
 
-</div>
+- **Idioma pt-BR como padrão** — toda a interface em português brasileiro nativo
+- **Branding Aguiavision Tecnologia** — identidade visual personalizada
+- **Deploy Docker para VPS** — configuração completa com `docker-compose.yml` e `entrypoint.sh`
+- **Skills customizadas** — skill-creator, frontend-design, playwright-mcp pré-instaladas
+- **SOUL.md com persona Aguiavision** — personalidade do agente em pt-BR
+- **Segurança atualizada** — todas as correções de segurança do upstream v0.4.1 incluídas
 
----
+## Instalação
 
-## 🧠 Agentes Inteligentes · 🧊 Memória Persistente · 🧩 MCP Integrado
+Baixe a versão mais recente na página de [Releases](https://github.com/aguiavisiontec/agente-hermes/releases/).
 
-Agente Hermes é um aplicativo desktop nativo pela **Aguiavision Tecnologia** para instalar, configurar e conversar com o [Hermes Agent](https://github.com/NousResearch/hermes-agent) — um assistente de IA que se aprimora sozinho com uso de ferramentas, mensagens multi-plataforma e ciclo de aprendizado fechado.
+| Plataforma     | Arquivo                 |
+| -------------- | ----------------------- |
+| macOS          | `.dmg`                  |
+| Linux (any)    | `.AppImage`             |
+| Linux (Debian) | `.deb`                  |
+| Linux (Fedora) | `.rpm`                  |
+| Windows        | `.exe` (NSIS installer) |
 
-Em vez de gerenciar o CLI manualmente, o app guia você pela instalação, configuração de provedor e uso diário em um só lugar. Ele usa o script oficial de instalação do Hermes, armazena os dados em `~/.hermes`, e oferece uma GUI para conversa, sessões, perfis, memória, habilidades, ferramentas, agendamentos, gateways de mensagens e muito mais — **tudo em português brasileiro**.
+> **Usuários Windows:** O instalador não é assinado com código. O Windows SmartScreen avisará na primeira execução — clique em "Mais informações" → "Executar mesmo assim".
 
-### 🇧🇷 Por que o Agente Hermes?
-
-| Recurso | Outros apps | Agente Hermes |
-|---------|-------------|---------------|
-| Idioma | Inglês | **Português Brasileiro** |
-| Interface | Tradução parcial | **100% traduzida e revisada** |
-| Navegação | "Chat", "Soul", "Auto" | "Conversa", "Persona", "Automático" |
-| Documentação | Inglês | **Português Brasileiro** |
-| Suporte | Comunidade geral | **Comunidade brasileira** |
-| Identidade | Genérica | **Aguiavision Tecnologia** |
-
----
-
-## 🚀 Instalar
-
-Baixe a versão mais recente na página de [Releases](https://github.com/aguiavisiontec/agente-hermes/releases).
-
-| Plataforma | Arquivo |
-|---|---|
-| macOS | `.dmg` |
-| Linux (qualquer) | `.AppImage` |
-| Linux (Debian) | `.deb` |
-| Linux (Fedora) | `.rpm` |
-| Windows | `.exe` (instalador NSIS) |
-
-### Windows (winget)
-
-```powershell
-winget install Aguiavision.AgenteHermes
-```
-
-> **Usuários Windows:** O instalador não é assinado com código. O SmartScreen do Windows avisará na primeira execução — clique em "Mais informações" → "Executar mesmo assim".
+> **Usuários WSL:** Se o instalador travar em `Switching to root user to install dependencies...`, o Playwright está esperando uma senha sudo que não tem TTY para ler. Conceda sudo sem senha para a instalação e reverta quando terminar.
 
 ### Fedora (RPM)
 
 ```bash
-sudo dnf install ./agente-hermes-<versão>.rpm
+sudo dnf install ./agente-aguiavitech-<version>.rpm
 ```
-
-> **Usuários Fedora:** O `.rpm` não é assinado com GPG. Se seu sistema exige verificação de assinatura, adicione `--nogpgcheck` ao comando de instalação.
 
 ### macOS
 
-> **Usuários macOS:** O app não é assinado ou notarizado. O macOS bloqueará na primeira execução. Para corrigir, execute o seguinte após instalar:
->
-> ```bash
-> xattr -cr "/Applications/Agente Hermes.app"
-> ```
->
-> Ou clique com o botão direito no app → **Abrir** → clique **Abrir** no diálogo de confirmação.
+```bash
+xattr -cr "/Applications/Agente IA Aguiavitech.app"
+```
 
----
+## Deploy Docker para VPS
 
-## ✨ Funcionalidades
+Para implantar em um servidor VPS com Docker:
 
-<table>
-<tr>
-<td width="50%">
+```bash
+# Clone o repositório
+git clone https://github.com/aguiavisiontec/agente-hermes.git
+cd agente-hermes/deploy
 
-🔄 **Instalação guiada** para o Hermes Agent com rastreamento de progresso e resolução de dependências
+# Configure as variáveis de ambiente
+cp .env.example .env
+# Edite o .env com suas chaves de API
 
-🌐 **Backend local ou remoto** — execute o Hermes localmente em `127.0.0.1:8642`, ou conecte a um servidor API remoto com URL + chave
+# Inicie os containers
+docker-compose up -d
+```
 
-🔌 **Suporte multi-provedor** — OpenRouter, Anthropic, OpenAI, Google (Gemini), xAI (Grok), Nous Portal, Qwen, MiniMax, Hugging Face, Groq e endpoints locais compatíveis com OpenAI
+Consulte o [DEPLOY.md](deploy/DEPLOY.md) para instruções detalhadas.
 
-</td>
-<td width="50%">
+## Funcionalidades
 
-💬 **Interface de chat com streaming** — SSE streaming, indicadores de progresso de ferramentas, renderização markdown e destaque de sintaxe
+- **Instalação guiada** do Hermes Agent com rastreamento de progresso e resolução de dependências
+- **Backend local ou remoto** — execute o Hermes localmente ou conecte a um servidor remoto
+- **Suporte multi-provedor** — OpenRouter, Anthropic, OpenAI, Google (Gemini), xAI, Groq, Ollama e mais
+- **Chat com streaming** — SSE streaming, indicadores de progresso de ferramentas, renderização markdown e syntax highlighting
+- **Rastreamento de uso de tokens** — contagens de tokens e custo em tempo real
+- **Comandos slash** — `/new`, `/clear`, `/fast`, `/web`, `/image`, `/browse`, `/code`, `/shell`, `/usage`, `/help` e mais
+- **Gerenciamento de sessões** — busca full-text, histórico agrupado por data, retomada de conversas
+- **Perfis isolados** — crie e alterne entre ambientes Hermes com configuração isolada
+- **14 toolsets** — web, browser, terminal, arquivo, execução de código, visão, geração de imagem, TTS, skills, memória e mais
+- **Sistema de memória** — visualize/edite entradas de memória, perfil do usuário, provedores de memória avançados
+- **Editor de persona** — edite e resete a personalidade SOUL.md do agente
+- **Tarefas agendadas** — construtor de cron jobs com 15 alvos de entrega
+- **16 gateways de mensageria** — Telegram, Discord, Slack, WhatsApp, Signal, Matrix e mais
+- **Backup, importação e debug** — backup/restauração completa e diagnósticos do sistema
+- **Atualização automática** — verifique e instale atualizações via electron-updater
+- **i18n** — interface traduzida em pt-BR, en, es, id, zh-CN
+- **Segurança endurecida** — sandbox ativo, URL allowlisting, webview hardening, redaction ON por padrão
 
-📊 **Rastreamento de tokens** — contagens de prompt/completion em tempo real e exibição de custos no rodapé do chat
+## Tela
 
-🗂️ **Gerenciamento de sessões** — busca de texto completo (SQLite FTS5), histórico agrupado por data, retomada e busca em conversas
+| Tela           | Descrição                                                                      |
+| -------------- | ------------------------------------------------------------------------------ |
+| **Chat**       | Conversação com streaming, comandos slash, progresso de ferramentas e tokens   |
+| **Sessões**    | Navegue, busque e retome conversas anteriores                                  |
+| **Perfis**     | Crie, delete e alterne entre perfis do Hermes                                  |
+| **Habilidades**| Navegue, instale e gerencie habilidades                                        |
+| **Modelos**    | Gerencie configurações de modelo por provedor                                  |
+| **Memória**    | Visualize/edite memória, perfil do usuário e configure provedores de memória   |
+| **Persona**    | Edite a persona do perfil ativo (SOUL.md)                                      |
+| **Ferramentas**| Ative ou desative toolsets individuais                                         |
+| **Agendamentos**| Crie e gerencie cron jobs com alvos de entrega                                |
+| **Gateway**    | Configure e controle integrações de plataformas de mensageria                  |
+| **Escritório** | Interface visual Claw3d                                                        |
+| **Configurações**| Config do provedor, pools de credenciais, backup/import, logs, tema           |
 
-👤 **Troca de perfis** — crie, exclua e alterne entre ambientes Hermes separados com configuração isolada
+## Provedores Suportados
 
-</td>
-</tr>
-</table>
+### Provedores LLM
 
-### Mais funcionalidades
+| Provedor            | Observações                              |
+| ------------------- | ---------------------------------------- |
+| **OpenRouter**      | 200+ modelos via API única (recomendado) |
+| **Anthropic**       | Acesso direto ao Claude                  |
+| **OpenAI**          | Acesso direto ao GPT                     |
+| **Google (Gemini)** | Google AI Studio                         |
+| **xAI (Grok)**      | Modelos Grok                             |
+| **Groq**            | Inferência rápida                        |
+| **Local/Custom**    | Qualquer endpoint compatível com OpenAI  |
 
-- **14 conjuntos de ferramentas** — web, navegador, terminal, arquivo, execução de código, visão, geração de imagens, TTS, habilidades, memória, pesquisa de sessão, esclarecimento, delegação, MoA e planejamento de tarefas
-- **Sistema de memória** — visualize/edit entradas de memória, memória de perfil de usuário, rastreamento de capacidade e provedores de memória descobíveis (Honcho, Hindsight, Mem0, RetainDB, Supermemory, ByteRover)
-- **Editor de persona** — edite e redefina a personalidade SOUL.md do seu agente
-- **Modelos salvos** — gerenciamento CRUD de configurações de modelos entre provedores
-- **Tarefas agendadas** — construtor de tarefas cron (minutos, horário, diário, semanal, cron personalizado) com 15 alvos de entrega
-- **16 gateways de mensagens** — Telegram, Discord, Slack, WhatsApp, Signal, Matrix, Mattermost, E-mail (IMAP/SMTP), SMS (Twilio/Vonage), iMessage (BlueBubbles), DingTalk, Feishu/Lark, WeCom, WeChat, Webhooks, Home Assistant
-- **Escritório Hermes (Claw3D)** — interface visual 3D com servidor de desenvolvimento e gerenciamento de adaptadores
-- **Backup, importação e dump de depuração** — backup/restauração completa de dados e diagnósticos do sistema nas Configurações
-- **Visualizador de logs** — veja logs do gateway e do agente diretamente da tela de Configurações
-- **Atualizador automático** — verifique e instale atualizações via electron-updater
-- **22 comandos slash** — `/new`, `/clear`, `/fast`, `/web`, `/image`, `/browse`, `/code`, `/shell`, `/usage`, `/help`, `/tools`, `/skills`, `/model`, `/memory`, `/persona`, `/version`, `/compact`, `/compress`, `/undo`, `/retry`, `/debug`, `/status`
-- **i18n completo** — framework de internacionalização com localidade pt-BR cobrindo todas as telas
+Presets locais incluídos para LM Studio, Ollama, vLLM e llama.cpp.
 
----
-
-## 🖥️ Telas
-
-| Tela | Descrição |
-|------|-----------|
-| **Conversa** | Interface de conversa com streaming, comandos slash, progresso de ferramentas e rastreamento de tokens |
-| **Sessões** | Navegue, pesquise e retome conversas passadas |
-| **Perfis** | Crie, exclua e alterne entre perfis do Hermes |
-| **Habilidades** | Navegue, instale e gerencie habilidades instaladas e nativas |
-| **Modelos** | Gerencie configurações de modelos salvos por provedor |
-| **Memória** | Visualize/edit entradas de memória, perfil de usuário e configure provedores de memória |
-| **Persona** | Edite a persona do perfil ativo (SOUL.md) |
-| **Ferramentas** | Ative ou desative conjuntos de ferramentas individuais |
-| **Agendamentos** | Crie e gerencie tarefas cron com alvos de entrega |
-| **Gateway** | Configure e controle integrações de plataformas de mensagens |
-| **Escritório** | Configuração e gerenciamento da interface visual Claw3D |
-| **Configurações** | Configuração de provedor, pools de credenciais, backup/importação, visualizador de logs, rede, tema |
-
----
-
-## 🏗️ Como Funciona
-
-Na primeira execução, o app:
-
-1. Pergunta se você quer rodar o Hermes **localmente** ou conectar a um **servidor** API remoto do Hermes.
-2. **Modo local:** verifica se o Hermes já está instalado em `~/.hermes`; se não, executa o instalador oficial com resolução de dependências (Git, uv, Python 3.11+).
-3. **Modo remoto:** solicita a URL da API remota e a chave API, valida a conexão e pula a instalação local.
-4. Solicita um provedor de API ou endpoint de modelo local.
-5. Salva a configuração do provedor e as chaves API através dos arquivos de configuração do Hermes.
-6. Inicia o espaço de trabalho principal após a conclusão da configuração.
-
-No modo local, as requisições de chat passam por `http://127.0.0.1:8642` com streaming SSE. No modo remoto, o app se comunica com sua URL remota configurada com o mesmo protocolo de streaming. O app desktop analisa o stream em tempo real, renderizando o progresso das ferramentas, conteúdo markdown e uso de tokens conforme chegam.
-
----
-
-## 🛠️ Stack Técnica
-
-| Tecnologia | Uso |
-|---|---|
-| **Electron** 39 | Shell desktop multi-plataforma |
-| **React** 19 | Framework de UI |
-| **TypeScript** 5.9 | Segurança de tipos nos processos main e renderer |
-| **Tailwind CSS** 4 | Estilização utility-first |
-| **Vite** 7 + electron-vite | Servidor de desenvolvimento rápido e ferramentas de build |
-| **better-sqlite3** | Armazenamento local de sessões com busca de texto completo FTS5 |
-| **i18next** | Framework de internacionalização (pt-BR como padrão) |
-| **Vitest** | Executor de testes |
-
----
-
-## 💻 Desenvolvimento
+## Desenvolvimento
 
 ### Pré-requisitos
 
 - Node.js e npm
-- Um ambiente shell Unix-like para o instalador do Hermes
-- Acesso à rede para baixar o Hermes durante a instalação inicial
+- Ambiente shell Unix-like para o instalador do Hermes
+- Acesso à rede para download do Hermes durante a primeira execução
 
 ### Instalar dependências
 
@@ -202,67 +152,41 @@ npm run dev
 ```bash
 npm run lint
 npm run typecheck
-```
-
-### Executar testes
-
-```bash
 npm run test
-npm run test:watch
 ```
 
 ### Build do app desktop
 
 ```bash
 npm run build
-```
-
-Empacotamento por plataforma:
-
-```bash
 npm run build:mac
 npm run build:win
 npm run build:linux
-npm run build:rpm    # Fedora/RHEL .rpm apenas
 ```
 
----
+## Stack Tecnológica
 
-## 📁 Arquivos do Hermes
+- **Electron** 39 — shell desktop multi-plataforma
+- **React** 19 — framework UI
+- **TypeScript** 5.9 — tipagem estática nos processos main e renderer
+- **Tailwind CSS** 4 — estilização utility-first
+- **Vite** 7 + electron-vite — dev server rápido e build tooling
+- **better-sqlite3** — armazenamento local de sessões com FTS5 full-text search
+- **i18next** — framework de internacionalização
+- **Vitest** — test runner
 
-Os arquivos do Hermes são gerenciados em:
+## Notas
 
-- `~/.hermes` — diretório raiz
-- `~/.hermes/.env` — variáveis de ambiente
-- `~/.hermes/config.yaml` — configuração
-- `~/.hermes/hermes-agent` — binário do agente
-- `~/.hermes/profiles/` — diretórios de perfis nomeados
-- `~/.hermes/state.db` — banco de dados de histórico de sessões
-- `~/.hermes/cron/jobs.json` — tarefas agendadas
+- O app desktop depende do projeto upstream Hermes Agent para comportamento do agente e execução de ferramentas.
+- O instalador embutido executa o script oficial de instalação do Hermes com `--skip-setup`, depois completa a configuração do provedor na GUI.
+- Provedores de modelos locais não exigem chave de API, mas o servidor compatível deve estar em execução.
 
----
+## Créditos
 
-## 🤝 Contribuindo
+- Baseado no [Hermes Desktop](https://github.com/fathah/hermes-desktop) por fathah
+- Motor de agente: [Hermes Agent](https://github.com/NousResearch/hermes-agent) por NousResearch
+- Fork e customização: [Aguiavision Tecnologia](https://aguiavisiontec.cloud)
 
-Contribuições são bem-vindas! Confira o [Guia de Contribuição](CONTRIBUTING.md) para começar. Se não tiver certeza por onde começar, dê uma olhada nas [issues abertas](https://github.com/aguiavisiontec/agente-hermes/issues). Encontrou um bug ou tem uma sugestão? [Abra uma issue](https://github.com/aguiavisiontec/agente-hermes/issues/new).
+## Licença
 
----
-
-## 📌 Projetos Relacionados
-
-Para o agente principal, documentação e fluxos de trabalho CLI, veja o repositório principal do Hermes Agent:
-
-- https://github.com/NousResearch/hermes-agent
-
----
-
-<div align="center">
-
-**Agente Hermes. O poder da IA na sua mesa.**
-
-<p>🪟 Windows 10/11 · 🐧 Linux · 🍎 macOS</p>
-<p>🔓 Código Aberto · 🇧🇷 Feito com paixão no Brasil</p>
-
-<p><strong>Aguiavision Tecnologia</strong></p>
-
-</div>
+MIT — veja o arquivo [LICENSE](LICENSE) para detalhes.

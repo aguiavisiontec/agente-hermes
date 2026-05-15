@@ -1,7 +1,7 @@
 export default {
   title: "设置",
   sections: {
-    hermesAgent: "Agente IA Aguiavitech",
+    hermesAgent: "Hermes Agent",
     appearance: "外观",
     credentialPool: "凭据池",
   },

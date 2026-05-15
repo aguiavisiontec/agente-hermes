@@ -1,7 +1,7 @@
 export default {
   title: "Configurações",
   sections: {
-    hermesAgent: "Agente IA Aguiavitech",
+    hermesAgent: "Hermes Agent",
     appearance: "Aparência",
     credentialPool: "Pool de Credenciais",
   },
@@ -13,9 +13,8 @@ export default {
   },
   language: {
     label: "Idioma",
-    english: "Inglês",
-    indonesian: "Indonésio",
-    spanish: "Espanhol",
+    english: "English",
+    indonesian: "Indonesio",
     chinese: "中文",
     portuguese: "Português",
     hint: "Escolha o idioma da interface",

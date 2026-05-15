@@ -48,11 +48,11 @@ export default {
     description: "Inicia sub-agentes para tarefas paralelas",
   },
   cronjob: {
-    label: "Tarefas Agendadas",
+    label: "Cron Jobs",
     description: "Cria e gerencia tarefas agendadas",
   },
   moa: {
-    label: "Mistura de Agentes",
+    label: "Mixture of Agents",
     description: "Coordena vários modelos de IA juntos",
   },
   todo: {

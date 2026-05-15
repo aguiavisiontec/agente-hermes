@@ -21,6 +21,7 @@ nsis:
   oneClick: true
   perMachine: false
 mac:
+  artifactName: ${name}-${version}-${arch}-${os}.${ext}
   icon: build/icon.icns
   entitlements: build/entitlements.mac.plist
   entitlementsInherit: build/entitlements.mac.inherit.plist
@@ -31,7 +32,7 @@ mac:
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
   notarize: false
 dmg:
-  artifactName: ${name}-${version}.${ext}
+  artifactName: ${name}-${version}-${arch}.${ext}
 linux:
   target:
     - AppImage
@@ -43,10 +44,9 @@ linux:
   category: Utility
   synopsis: Agente IA Aguiavitech — Assistente de IA com auto-aprimoramento
   description: >-
-    Agente IA Aguiavitech — aplicativo desktop nativo para instalar,
-    configurar e conversar com o Agente IA Aguiavitech, um assistente de IA com auto-aprimoramento,
-    uso de ferramentas, mensagens multi-plataforma e ciclo de aprendizado fechado.
-    Interface 100% em português brasileiro.
+    Agente IA Aguiavitech é um aplicativo desktop nativo para instalar, configurar e conversar
+    com o Hermes Agent — um assistente de IA com auto-aprimoramento, uso de ferramentas,
+    mensageria multi-plataforma e ciclo de aprendizado fechado.
 appImage:
   artifactName: ${name}-${version}.${ext}
 rpm:

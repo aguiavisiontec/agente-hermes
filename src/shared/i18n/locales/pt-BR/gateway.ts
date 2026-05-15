@@ -2,7 +2,7 @@ export default {
   title: "Gateway",
   messagingGateway: "Gateway de Mensagens",
   platforms: "Plataformas",
-  status: "Estado",
+  status: "Status",
   running: "Em execução",
   stopped: "Parado",
   gatewayHint:

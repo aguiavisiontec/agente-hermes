@@ -55,6 +55,6 @@ export default {
     model: "Show or switch the current model",
     memory: "Show agent memory",
     persona: "Show current persona",
-    version: "Show Agente IA Aguiavitech version",
+    version: "Show Hermes version",
   },
 } as const;

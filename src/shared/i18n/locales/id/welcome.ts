@@ -1,5 +1,5 @@
 export default {
-  title: "Selamat datang di Aguiavitech",
+  title: "Selamat datang di Hermes",
   subtitle:
     "Asisten AI yang terus berkembang dan berjalan lokal di mesin Anda. Privat, kuat, dan selalu belajar.",
   installIssueTitle: "Masalah Instalasi",
@@ -10,9 +10,9 @@ export default {
   installSizeHint: "Ini akan menginstal komponen yang diperlukan (~2 GB)",
   copyInstallCommand: "Salin perintah instalasi",
   dividerOr: "atau",
-  connectRemote: "Hubungkan ke Agente IA Aguiavitech Remote",
-  connectRemoteTitle: "Hubungkan ke Agente IA Aguiavitech Remote",
-  connectRemoteSubtitle: "Masukkan URL server Agente IA Aguiavitech API yang sedang berjalan.",
+  connectRemote: "Hubungkan ke Hermes Remote",
+  connectRemoteTitle: "Hubungkan ke Hermes Remote",
+  connectRemoteSubtitle: "Masukkan URL server Hermes API yang sedang berjalan.",
   remoteServerUrl: "URL Server",
   remoteApiKey: "API Key (opsional)",
   remoteApiKeyPlaceholder: "Bearer token (API_SERVER_KEY)",
@@ -20,4 +20,16 @@ export default {
   connect: "Hubungkan",
   remoteHint:
     "Biarkan key kosong jika server menerima request tanpa autentikasi (misalnya melalui SSH tunnel ke localhost).",
+  connectSshTitle: "Hubungkan via SSH",
+  connectSshSubtitle: "Tunnel ke Hermes remote melalui SSH — tidak perlu port terbuka atau API key.",
+  sshHost: "Host SSH",
+  sshPort: "Port SSH",
+  sshUsername: "Nama Pengguna",
+  sshKeyPath: "Path Kunci Privat",
+  sshKeyPathOptional: "(opsional — default ~/.ssh/id_rsa)",
+  remoteAguiavitechPort: "Port Hermes Remote",
+  defaultPort8642: "(default 8642)",
+  testingSsh: "Menguji koneksi SSH…",
+  connectViaSsh: "Hubungkan via SSH",
+  sshHint: "Menggunakan SSH sistem Anda. Pastikan Anda sudah bisa menjalankan ssh {{user}}@{{host}} tanpa prompt password.",
 } as const;

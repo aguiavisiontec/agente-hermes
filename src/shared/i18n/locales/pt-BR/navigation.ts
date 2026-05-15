@@ -1,5 +1,5 @@
 export default {
-  chat: "Conversa",
+  chat: "Chat",
   sessions: "Sessões",
   agents: "Perfis",
   office: "Escritório",

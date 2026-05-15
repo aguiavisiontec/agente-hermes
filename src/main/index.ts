@@ -117,6 +117,13 @@ import {
   triggerCronJob,
 } from "./cronjobs";
 import { getAppLocale, setAppLocale } from "./locale";
+import {
+  hardenAttachedWebContents,
+  hardenWebviewPreferences,
+  isAllowedAppNavigationUrl,
+  isAllowedExternalUrl,
+  isAllowedWebviewUrl,
+} from "./security";
 import type { AppLocale } from "../shared/i18n/types";
 import {
   sshListInstalledSkills,
@@ -174,7 +181,20 @@ process.on("unhandledRejection", (reason) => {
 let mainWindow: BrowserWindow | null = null;
 let currentChatAbort: (() => void) | null = null;
 
+function openExternalUrl(rawUrl: unknown): void {
+  if (!isAllowedExternalUrl(rawUrl)) {
+    console.warn("[SECURITY] Blocked unsafe external URL");
+    return;
+  }
+
+  shell.openExternal(rawUrl).catch((err) => {
+    console.error("[SECURITY] Failed to open external URL:", err);
+  });
+}
+
 function createWindow(): void {
+  const rendererHtmlPath = join(__dirname, "../renderer/index.html");
+
   mainWindow = new BrowserWindow({
     width: 1100,
     height: 750,
@@ -189,7 +209,11 @@ function createWindow(): void {
     ...(process.platform === "linux" ? { icon } : {}),
     webPreferences: {
       preload: join(__dirname, "../preload/index.js"),
-      sandbox: false,
+      nodeIntegration: false,
+      contextIsolation: true,
+      sandbox: true,
+      webSecurity: true,
+      allowRunningInsecureContent: false,
       webviewTag: true,
     },
   });
@@ -223,14 +247,42 @@ function createWindow(): void {
   );
 
   mainWindow.webContents.setWindowOpenHandler((details) => {
-    shell.openExternal(details.url);
+    openExternalUrl(details.url);
     return { action: "deny" };
   });
+
+  mainWindow.webContents.on("will-navigate", (event, url) => {
+    if (
+      isAllowedAppNavigationUrl(
+        url,
+        rendererHtmlPath,
+        is.dev ? process.env["ELECTRON_RENDERER_URL"] : undefined,
+      )
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    openExternalUrl(url);
+  });
+
+  mainWindow.webContents.on(
+    "will-attach-webview",
+    (event, webPreferences, params) => {
+      if (!isAllowedWebviewUrl(params.src)) {
+        event.preventDefault();
+        console.warn("[SECURITY] Blocked webview attachment for untrusted URL");
+        return;
+      }
+
+      hardenWebviewPreferences(webPreferences);
+    },
+  );
 
   if (is.dev && process.env["ELECTRON_RENDERER_URL"]) {
     mainWindow.loadURL(process.env["ELECTRON_RENDERER_URL"]);
   } else {
-    mainWindow.loadFile(join(__dirname, "../renderer/index.html"));
+    mainWindow.loadFile(rendererHtmlPath);
   }
 }
 
@@ -278,8 +330,8 @@ function setupIPC(): void {
           step: 1,
           totalSteps: 1,
           title: "Atualizando Agente IA Aguiavitech remoto",
-          detail: "Running hermes update over SSH...",
-          log: "Running hermes update over SSH...\n",
+          detail: "Executando hermes update via SSH...",
+          log: "Executando hermes update via SSH...\n",
         });
         await sshRunUpdate(conn.ssh);
         await sshStartGateway(conn.ssh);
@@ -902,7 +954,7 @@ function setupIPC(): void {
 
   // Shell
   ipcMain.handle("open-external", (_event, url: string) => {
-    shell.openExternal(url);
+    openExternalUrl(url);
   });
 
   // Backup / Import
@@ -1029,15 +1081,13 @@ function buildMenu(): void {
         {
           label: "Agente IA Aguiavitech no GitHub",
           click: (): void => {
-            shell.openExternal("https://github.com/aguiavisiontec/agente-hermes");
+            openExternalUrl("https://github.com/aguiavisiontec/agente-hermes/");
           },
         },
         {
           label: "Reportar um Problema",
           click: (): void => {
-            shell.openExternal(
-              "https://github.com/aguiavisiontec/agente-hermes/issues",
-            );
+            openExternalUrl("https://github.com/aguiavisiontec/agente-hermes/issues");
           },
         },
       ],
@@ -1099,9 +1149,15 @@ function setupUpdater(): void {
     }
   });
 
-  ipcMain.handle("download-update", () => {
-    autoUpdater.downloadUpdate();
-    return true;
+  ipcMain.handle("download-update", async () => {
+    try {
+      await autoUpdater.downloadUpdate();
+      return true;
+    } catch (err) {
+      const message = err instanceof Error ? err.message : String(err);
+      mainWindow?.webContents.send("update-error", message);
+      return false;
+    }
   });
 
   ipcMain.handle("install-update", () => {
@@ -1119,6 +1175,12 @@ app.whenReady().then(() => {
 
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window);
+  });
+
+  app.on("web-contents-created", (_event, contents) => {
+    if (contents.getType() === "webview") {
+      hardenAttachedWebContents(contents);
+    }
   });
 
   buildMenu();

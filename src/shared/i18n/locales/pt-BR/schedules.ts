@@ -31,7 +31,7 @@ export default {
   cronExpression: "Expressão Cron",
   cronPlaceholder: "ex: 0 9 * * 1-5",
   cronHint: "Formato cron padrão: minuto hora dia mês dia-da-semana",
-  prompt: "Instrução",
+  prompt: "Prompt",
   promptPlaceholder: "Digite a descrição da tarefa a ser executada pelo agente...",
   deliverTo: "Entregar Para",
   deliverHint: "Onde enviar os resultados após a conclusão da tarefa",
