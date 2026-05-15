@@ -190,4 +190,7 @@ echo "────────────────────────�
 cd "${HERMES_REPO}"
 
 # Executa o comando passado (default: gateway)
-exec python -m hermes "$@"
+# O CLI do hermes-agent instala o comando 'hermes' via console_scripts
+PATH="/opt/hermes-venv/bin:${PATH}"
+export PATH
+exec hermes "$@"
