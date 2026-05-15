@@ -1,15 +1,15 @@
 import icon from "../../assets/icon.png";
 
-function HermesLogo({ size = 32 }: { size?: number }): React.JSX.Element {
+function AguiavisionLogo({ size = 32 }: { size?: number }): React.JSX.Element {
   return (
     <img
       src={icon}
       width={size}
       height={size}
       className="rounded-xl"
-      alt="Aguiavitech"
+      alt="Aguiavision Tecnologia"
     />
   );
 }
 
-export default HermesLogo;
+export default AguiavisionLogo;

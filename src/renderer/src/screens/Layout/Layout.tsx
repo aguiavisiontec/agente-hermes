@@ -14,7 +14,7 @@ import Providers from "../Providers/Providers";
 import Schedules from "../Schedules/Schedules";
 import RemoteNotice from "../../components/RemoteNotice";
 import VerifyWarningBanner from "../../components/VerifyWarningBanner";
-import hermeslogo from "../../assets/hermes.png";
+import aguiavisionlogo from "../../assets/aguiavision-logo.png";
 import {
   ChatBubble,
   Clock,
@@ -207,7 +207,7 @@ function Layout({
     <div className="layout">
       <aside className="sidebar">
         <div className="sidebar-brand">
-          <img src={hermeslogo} height={30} alt="" />
+          <img src={aguiavisionlogo} height={30} alt="Aguiavision Tecnologia" />
         </div>
 
         <nav className="sidebar-nav">
