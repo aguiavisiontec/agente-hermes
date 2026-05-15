@@ -1,7 +1,7 @@
 {
   "name": "agente-aguiavitech",
-  "version": "0.13.1",
-  "description": "Agente IA Aguiavitech \u2014 assistente de IA com auto-aprimoramento",
+  "version": "0.4.1",
+  "description": "Agente IA Aguiavitech — assistente de IA com auto-aprimoramento",
   "main": "./out/main/index.js",
   "author": "Aguiavitech",
   "homepage": "https://github.com/aguiavisiontec/agente-hermes",

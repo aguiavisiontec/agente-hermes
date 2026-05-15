@@ -1,19 +1,19 @@
 # Generated from this template by scripts/generate-winget-manifests.mjs.
-PackageIdentifier: Aguiavisiontec.AgenteHermes
+PackageIdentifier: Aguiavisiontec.AgenteAguiavitech
 PackageVersion: {{VERSION}}
 PackageLocale: en-US
 Publisher: Aguiavision Tecnologia
 PublisherUrl: https://github.com/aguiavisiontec/agente-hermes
 PublisherSupportUrl: https://github.com/aguiavisiontec/agente-hermes/issues
-PackageName: Agente Hermes
+PackageName: Agente IA Aguiavitech
 PackageUrl: https://github.com/aguiavisiontec/agente-hermes
 License: MIT
 LicenseUrl: https://github.com/aguiavisiontec/agente-hermes/blob/main/LICENSE
-ShortDescription: Self-improving AI assistant desktop app
+ShortDescription: Assistente de IA com auto-aprimoramento
 Description: |-
-  Agente Hermes is a native desktop app for installing, configuring, and chatting
-  with Hermes Agent — a self-improving AI assistant with tool use, multi-platform
-  messaging, and a closed learning loop.
+  Agente IA Aguiavitech é um app desktop nativo para instalar, configurar e conversar
+  com o Agente Hermes — um assistente de IA com auto-aprimoramento, uso de ferramentas,
+  mensageria multi-plataforma e ciclo de aprendizado fechado.
 Tags:
   - ai
   - agent

@@ -12,7 +12,7 @@ import { createConnection } from "net";
 import { getEnhancedPath, HERMES_HOME } from "./installer";
 import { stripAnsi, safeWriteFile } from "./utils";
 
-const HERMES_OFFICE_REPO = "https://github.com/fathah/hermes-office";
+const HERMES_OFFICE_REPO = "https://github.com/aguiavisiontec/agente-hermes-office";
 const HERMES_OFFICE_DIR = join(HERMES_HOME, "hermes-office");
 const DEV_PID_FILE = join(HERMES_HOME, "claw3d-dev.pid");
 const ADAPTER_PID_FILE = join(HERMES_HOME, "claw3d-adapter.pid");
@@ -207,7 +207,7 @@ function writeClaw3dSettings(wsUrl?: string): void {
       const envPath = join(HERMES_OFFICE_DIR, ".env");
       const port = getSavedPort();
       const envContent = [
-        "# Auto-configured by Agente Hermes",
+        "# Auto-configured by Agente IA Aguiavitech",
         `PORT=${port}`,
         `HOST=127.0.0.1`,
         `NEXT_PUBLIC_GATEWAY_URL=${url}`,
@@ -215,7 +215,7 @@ function writeClaw3dSettings(wsUrl?: string): void {
         `CLAW3D_GATEWAY_TOKEN=`,
         `HERMES_ADAPTER_PORT=18789`,
         `HERMES_MODEL=hermes`,
-        `HERMES_AGENT_NAME=Hermes`,
+        `HERMES_AGENT_NAME=Aguiavitech`,
         "",
       ].join("\n");
       safeWriteFile(envPath, envContent);

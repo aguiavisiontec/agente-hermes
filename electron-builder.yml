@@ -39,13 +39,13 @@ linux:
     - snap
     - deb
     - rpm
-  maintainer: Aguiavitech
-  vendor: Aguiavitech
+  maintainer: electronjs.org
+  vendor: Aguiavision Tecnologia
   category: Utility
-  synopsis: Agente IA Aguiavitech — Assistente de IA com auto-aprimoramento
+  synopsis: Assistente de IA com auto-aprimoramento
   description: >-
-    Agente IA Aguiavitech é um aplicativo desktop nativo para instalar, configurar e conversar
-    com o Hermes Agent — um assistente de IA com auto-aprimoramento, uso de ferramentas,
+    Agente IA Aguiavitech é um app desktop nativo para instalar, configurar e conversar
+    com o Agente Hermes — um assistente de IA com auto-aprimoramento, uso de ferramentas,
     mensageria multi-plataforma e ciclo de aprendizado fechado.
 appImage:
   artifactName: ${name}-${version}.${ext}

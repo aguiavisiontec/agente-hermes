@@ -194,16 +194,17 @@ function Welcome({
       <div className="screen welcome-screen">
         <AguiavisionLogo size={36} />
         <h1 className="welcome-title" style={{ fontSize: 22 }}>
-          {t("welcome.connectSshTitle")}
+          Connect via SSH
         </h1>
         <p className="welcome-subtitle" style={{ marginBottom: 24 }}>
-          {t("welcome.connectSshSubtitle")}
+          Tunnel to a remote Hermes over SSH — no exposed ports or API keys
+          needed.
         </p>
 
         <div className="welcome-remote-card">
           <div style={{ display: "flex", gap: 8 }}>
             <div style={{ flex: 3 }}>
-              <label className="welcome-remote-label">{t("welcome.sshHost")}</label>
+              <label className="welcome-remote-label">SSH Host</label>
               <input
                 type="text"
                 className="welcome-remote-input"
@@ -214,7 +215,7 @@ function Welcome({
               />
             </div>
             <div style={{ flex: 1 }}>
-              <label className="welcome-remote-label">{t("welcome.sshPort")}</label>
+              <label className="welcome-remote-label">SSH Port</label>
               <input
                 type="number"
                 className="welcome-remote-input"
@@ -226,7 +227,7 @@ function Welcome({
           </div>
 
           <label className="welcome-remote-label" style={{ marginTop: 12 }}>
-            {t("welcome.sshUsername")}
+            Username
           </label>
           <input
             type="text"
@@ -237,9 +238,9 @@ function Welcome({
           />
 
           <label className="welcome-remote-label" style={{ marginTop: 12 }}>
-            {t("welcome.sshKeyPath")}{" "}
+            Private Key Path{" "}
             <span style={{ fontWeight: 400, opacity: 0.6 }}>
-              {t("welcome.sshKeyPathOptional")}
+              (optional — defaults to ~/.ssh/id_rsa)
             </span>
           </label>
           <input
@@ -251,9 +252,9 @@ function Welcome({
           />
 
           <label className="welcome-remote-label" style={{ marginTop: 12 }}>
-            {t("welcome.remoteAguiavitechPort")}{" "}
+            Remote Hermes Port{" "}
             <span style={{ fontWeight: 400, opacity: 0.6 }}>
-              {t("welcome.defaultPort8642")}
+              (default 8642)
             </span>
           </label>
           <input
@@ -273,12 +274,12 @@ function Welcome({
             >
               {sshTesting ? (
                 <>
-                  {t("welcome.testingSsh")}
+                  Testing SSH connection…
                   <Spinner size={14} className="animate-spin" />
                 </>
               ) : (
                 <>
-                  {t("welcome.connectViaSsh")}
+                  Connect via SSH
                   <ArrowRight size={16} />
                 </>
               )}
@@ -295,7 +296,11 @@ function Welcome({
           )}
 
           <p className="welcome-remote-hint">
-            {t("welcome.sshHint", { user: sshUser || "user", host: sshHost || "host" })}
+            Uses your system SSH. Make sure you can already run{" "}
+            <code style={{ fontFamily: "monospace", fontSize: 12 }}>
+              ssh {sshUser || "user"}@{sshHost || "host"}
+            </code>{" "}
+            without a password prompt.
           </p>
         </div>
 
@@ -352,21 +357,21 @@ function Welcome({
               {t("welcome.recheck")}
             </button>
             <div className="welcome-divider">
-              <span>{t("welcome.dividerOr")}</span>
+              <span>or</span>
             </div>
             <button
               className="btn btn-secondary welcome-recheck-btn"
               onClick={() => setPanel("ssh")}
             >
               <KeyRound size={16} />
-              {t("welcome.connectViaSsh")}
+              Connect via SSH
             </button>{" "}
             <button
               className="btn btn-secondary welcome-recheck-btn "
               onClick={() => setPanel("remote")}
             >
               <Globe size={16} />
-              {t("welcome.connectRemote")}
+              Connect to Remote Hermes
             </button>
           </div>
         </>
@@ -389,7 +394,7 @@ function Welcome({
             onClick={() => setPanel("ssh")}
           >
             <KeyRound size={16} />
-            {t("welcome.connectViaSsh")}
+            Connect via SSH
           </button>
 
           <button

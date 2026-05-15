@@ -1029,9 +1029,9 @@ Expected: `nothing to commit, working tree clean`.
 
 ---
 
-## Phase 6: CI verification on the repository
+## Phase 6: CI verification on the cópia
 
-### Task 21: Push branch to Aiacos repository
+### Task 21: Push branch to Aiacos cópia
 
 This step requires push access to `Aiacos/hermes-desktop` (the user's copy). If pushing requires interactive auth, the human operator runs the command.
 
@@ -1144,7 +1144,7 @@ Plan: `docs/superpowers/plans/2026-04-30-windows-winget-fedora-rpm-release.md`
 - [x] `npm run typecheck`
 - [x] `npm run test` (4 new tests for the manifest generator)
 - [x] `npm run build:rpm` produces a valid `.rpm` on Fedora
-- [x] `workflow_dispatch` with `dry_run=true` on the repository: all build jobs succeed, `publish` skipped as expected
+- [x] `workflow_dispatch` with `dry_run=true` on the cópia: all build jobs succeed, `publish` skipped as expected
 - [x] Generated winget manifests inspected: no leftover placeholders, valid SHA256, correct URLs
 
 ## Notes for the maintainer
@@ -1183,7 +1183,7 @@ Done.
 - ✅ Explicit NSIS oneClick/perMachine → Task 2
 - ✅ README updates for Windows + Fedora install → Task 18
 - ✅ Local verification (lint/typecheck/test) → Task 20
-- ✅ CI verification on repository → Tasks 21–23
+- ✅ CI verification on cópia → Tasks 21–23
 - ✅ Open PR upstream → Task 24
 
 **Placeholder scan:** No "TBD" or "fill in details" left. The generated PR body in Task 24 has a "Test plan" with unchecked boxes — that is intentional, those are TODOs for the *maintainer*, not for the implementer.

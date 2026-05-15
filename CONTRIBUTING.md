@@ -1,6 +1,6 @@
-# Contributing to Agente Hermes
+# Contributing to Agente IA Aguiavitech
 
-Thanks for your interest in contributing to Agente Hermes! Whether it's a bug fix, a new feature, improved docs, or just a typo — every contribution helps.
+Thanks for your interest in contributing to Agente IA Aguiavitech! Whether it's a bug fix, a new feature, improved docs, or just a typo — every contribution helps.
 
 ## Languages
 
@@ -9,7 +9,7 @@ Thanks for your interest in contributing to Agente Hermes! Whether it's a bug fi
 
 ## Getting Started
 
-1. **Clone** the repository and clone your copy locally.
+1. **Clone** the repository and create your local copy.
 2. **Install dependencies:**
 
    ```bash
@@ -44,7 +44,7 @@ Thanks for your interest in contributing to Agente Hermes! Whether it's a bug fi
 ## Submitting a Pull Request
 
 1. Push your branch to your copy.
-2. Open a pull request against `main` on the upstream repo.
+2. Open a pull request against `main`.
 3. Write a clear description of what you changed and why.
 4. If your PR addresses an open issue, reference it (e.g., `Fixes #42`).
 

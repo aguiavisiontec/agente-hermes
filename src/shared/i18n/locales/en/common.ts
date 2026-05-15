@@ -1,5 +1,5 @@
 export default {
-  appName: "Hermes Agent",
+  appName: "Agente IA Aguiavitech",
   continue: "Continue",
   cancel: "Cancel",
   retry: "Retry",

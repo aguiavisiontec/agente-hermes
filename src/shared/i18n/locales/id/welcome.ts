@@ -20,16 +20,4 @@ export default {
   connect: "Hubungkan",
   remoteHint:
     "Biarkan key kosong jika server menerima request tanpa autentikasi (misalnya melalui SSH tunnel ke localhost).",
-  connectSshTitle: "Hubungkan via SSH",
-  connectSshSubtitle: "Tunnel ke Hermes remote melalui SSH — tidak perlu port terbuka atau API key.",
-  sshHost: "Host SSH",
-  sshPort: "Port SSH",
-  sshUsername: "Nama Pengguna",
-  sshKeyPath: "Path Kunci Privat",
-  sshKeyPathOptional: "(opsional — default ~/.ssh/id_rsa)",
-  remoteAguiavitechPort: "Port Hermes Remote",
-  defaultPort8642: "(default 8642)",
-  testingSsh: "Menguji koneksi SSH…",
-  connectViaSsh: "Hubungkan via SSH",
-  sshHint: "Menggunakan SSH sistem Anda. Pastikan Anda sudah bisa menjalankan ssh {{user}}@{{host}} tanpa prompt password.",
 } as const;

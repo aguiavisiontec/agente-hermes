@@ -1,6 +1,6 @@
-# 为 Agente Hermes 做贡献
+# 为 Agente IA Aguiavitech 做贡献
 
-感谢你愿意为 Agente Hermes 做出贡献。无论是修复 bug、添加新功能、完善文档，还是修正一个拼写错误，每一份贡献都很有价值。
+感谢你愿意为 Agente IA Aguiavitech 做出贡献。无论是修复 bug、添加新功能、完善文档，还是修正一个拼写错误，每一份贡献都很有价值。
 
 ## 语言
 

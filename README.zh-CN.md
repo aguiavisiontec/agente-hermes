@@ -1,21 +1,21 @@
-# Agente Hermes
+# Agente IA Aguiavitech
 
-<img width="100%" alt="AGENTE HERMES" src="https://github.com/user-attachments/assets/80585955-3bae-4aee-af90-a1e61757ccb8" />
+<img width="100%" alt="HERMES DESKTOP" src="https://github.com/user-attachments/assets/80585955-3bae-4aee-af90-a1e61757ccb8" />
 
 ## 语言
 
-- Português (Brasil): `README.md`
+- 英文：`README.md`
 - 简体中文：`README.zh-CN.md`
 
 > **本项目仍在积极开发中。** 功能可能会变化，部分内容也可能出现问题。如果你遇到 bug 或有新的想法，欢迎在 GitHub 上提交 issue。
 
-Agente Hermes 是一个桌面应用，用于通过原生桌面界面安装、配置并与 [Hermes Agent](https://github.com/NousResearch/hermes-agent) 进行交互。
+Hermes Desktop 是一个桌面应用，用于通过原生桌面界面安装、配置并与 [Hermes Agent](https://github.com/NousResearch/hermes-agent) 进行交互。
 
 它把安装、提供商配置和日常使用整合到同一个图形界面中，而不是要求你手动维护 CLI。应用会调用官方 Hermes 安装脚本，将 Hermes 存储在 `~/.hermes` 中，并提供聊天、会话、档案、记忆、技能、工具和设置等 GUI 功能。
 
 ## 安装
 
-请从 [Releases](https://github.com/aguiavisiontec/agente-hermes/releases/) 页面下载最新构建版本。
+请从 [Releases](https://github.com/fathah/hermes-desktop/releases/) 页面下载最新构建版本。
 
 | 平台  | 文件                  |
 | ----- | --------------------- |
@@ -25,7 +25,7 @@ Agente Hermes 是一个桌面应用，用于通过原生桌面界面安装、配
 > **macOS 用户：** 应用目前没有进行代码签名或 notarize，首次启动时 macOS 可能会阻止运行。安装后请执行：
 >
 > ```bash
-> xattr -cr "/Applications/Agente IA Aguiavitech.app"
+> xattr -cr "/Applications/Hermes Agent.app"
 > ```
 >
 > 或者右键应用，选择 **Open**，然后在弹窗中再次点击 **Open**。
@@ -138,7 +138,7 @@ Hermes 相关文件位于：
 
 ## 贡献
 
-欢迎贡献！请查看 [贡献指南](CONTRIBUTING.zh-CN.md) 开始参与。如果你不知道从哪里入手，可以先看看 [open issues](https://github.com/aguiavisiontec/agente-hermes/issues)。如果你发现 bug 或希望提出功能请求，也欢迎 [提交 issue](https://github.com/aguiavisiontec/agente-hermes/issues/new)。
+欢迎贡献！请查看 [贡献指南](CONTRIBUTING.zh-CN.md) 开始参与。如果你不知道从哪里入手，可以先看看 [open issues](https://github.com/NousResearch/hermes-desktop/issues)。如果你发现 bug 或希望提出功能请求，也欢迎 [提交 issue](https://github.com/NousResearch/hermes-desktop/issues/new)。
 
 ## 相关项目
 

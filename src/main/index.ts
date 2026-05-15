@@ -1081,13 +1081,13 @@ function buildMenu(): void {
         {
           label: "Agente IA Aguiavitech no GitHub",
           click: (): void => {
-            openExternalUrl("https://github.com/aguiavisiontec/agente-hermes/");
+            openExternalUrl("https://github.com/NousResearch/hermes-agent/");
           },
         },
         {
-          label: "Reportar um Problema",
+          label: "Report an Issue",
           click: (): void => {
-            openExternalUrl("https://github.com/aguiavisiontec/agente-hermes/issues");
+            openExternalUrl("https://github.com/fathah/hermes-desktop/issues");
           },
         },
       ],
@@ -1170,8 +1170,8 @@ function setupUpdater(): void {
 }
 
 app.whenReady().then(() => {
-  app.name = "Agente IA Aguiavitech";
-  electronApp.setAppUserModelId("com.aguiavitech.agente");
+  app.name = "Hermes";
+  electronApp.setAppUserModelId("com.nousresearch.hermes");
 
   app.on("browser-window-created", (_, window) => {
     optimizer.watchWindowShortcuts(window);
