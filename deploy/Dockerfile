@@ -39,7 +39,7 @@ FROM base AS builder
 WORKDIR /opt/hermes
 
 # Clona e instala o hermes-agent
-RUN git clone --depth 1 https://github.com/NousResearch/hermes-agent.git . \
+RUN git clone --depth 1 --branch v2026.5.7 https://github.com/NousResearch/hermes-agent.git . \
     && uv venv /opt/hermes-venv \
     && . /opt/hermes-venv/bin/activate \
     && uv pip install --no-cache -e ".[all]"
