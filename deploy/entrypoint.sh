@@ -8,6 +8,64 @@ set -e
 HERMES_HOME="${HERMES_HOME:-/data/hermes}"
 HERMES_REPO="${HERMES_REPO:-/opt/hermes}"
 
+# Lista de variáveis de API para mesclar do docker-compose para o .env do Hermes
+API_ENV_VARS=(
+    "OPENROUTER_API_KEY"
+    "ANTHROPIC_API_KEY"
+    "OPENAI_API_KEY"
+    "GOOGLE_API_KEY"
+    "GROQ_API_KEY"
+    "DEEPSEEK_API_KEY"
+    "EXA_API_KEY"
+    "TAVIL_API_KEY"
+    "FAL_KEY"
+    "API_SERVER_KEY"
+    "ANTHROPIC_BASE_URL"
+)
+
+# ── Função: mescla chaves API do ambiente (docker-compose) para o .env do Hermes ──
+merge_api_keys_to_env() {
+    local env_file="${HERMES_HOME}/.env"
+    local changed=false
+
+    for var_name in "${API_ENV_VARS[@]}"; do
+        # Obtém o valor da variável do ambiente atual
+        var_value="${!var_name:-}"
+
+        # Se a variável tem valor no ambiente (veio do docker-compose)
+        if [ -n "$var_value" ]; then
+            # Verifica se já existe no .env (descomentada)
+            if grep -q "^${var_name}=" "$env_file" 2>/dev/null; then
+                # Atualiza o valor existente
+                existing_value=$(grep "^${var_name}=" "$env_file" | cut -d'=' -f2-)
+                if [ "$existing_value" != "$var_value" ]; then
+                    sed -i "s|^${var_name}=.*|${var_name}=${var_value}|" "$env_file"
+                    echo "   🔑 ${var_name} atualizado no .env"
+                    changed=true
+                fi
+            else
+                # Verifica se existe comentada
+                if grep -q "^#${var_name}=" "$env_file" 2>/dev/null; then
+                    # Descomenta e atualiza o valor
+                    sed -i "s|^#${var_name}=.*|${var_name}=${var_value}|" "$env_file"
+                    echo "   🔑 ${var_name} descomentado e configurado no .env"
+                    changed=true
+                else
+                    # Adiciona ao final do arquivo
+                    echo "" >> "$env_file"
+                    echo "${var_name}=${var_value}" >> "$env_file"
+                    echo "   🔑 ${var_name} adicionado ao .env"
+                    changed=true
+                fi
+            fi
+        fi
+    done
+
+    if [ "$changed" = true ]; then
+        echo "✅ Chaves API mescladas do docker-compose para o .env do Hermes"
+    fi
+}
+
 # ── Drop de privilégios: se rodando como root, re-exec como usuário hermes ──
 if [ "$(id -u)" = "0" ]; then
     echo "🇧🇷 Agente Hermes — Aguiavision Tecnologia"
@@ -46,7 +104,7 @@ if [ "$(id -u)" = "0" ]; then
             echo "📋 Copiando .env de /secrets/hermes.env"
             cp /secrets/hermes.env "${HERMES_HOME}/.env"
         else
-            echo "⚠️  Nenhum arquivo .env encontrado. Criando modelo..."
+            echo "📝 Criando modelo .env..."
             cat > "${HERMES_HOME}/.env" << 'ENVEOF'
 # ─────────────────────────────────────────────
 # Agente Hermes — Configuração de Ambiente
@@ -74,6 +132,10 @@ ENVEOF
             echo "📝 Modelo .env criado em ${HERMES_HOME}/.env"
         fi
     fi
+
+    # ── Mescla chaves API do docker-compose para o .env do Hermes ──
+    echo "🔑 Verificando chaves API do docker-compose..."
+    merge_api_keys_to_env
 
     # ── Cria config.yaml se não existir ──
     if [ ! -f "${HERMES_HOME}/config.yaml" ]; then
@@ -184,10 +246,14 @@ SOULEOF
             echo "⚠️  chown falhou (container rootless?) — continuando"
     fi
 
-    # Garante que config.yaml é legível pelo hermes
+    # Garante que config.yaml e .env são legíveis pelo hermes
     if [ -f "${HERMES_HOME}/config.yaml" ]; then
         chown hermes:hermes "${HERMES_HOME}/config.yaml" 2>/dev/null || true
         chmod 640 "${HERMES_HOME}/config.yaml" 2>/dev/null || true
+    fi
+    if [ -f "${HERMES_HOME}/.env" ]; then
+        chown hermes:hermes "${HERMES_HOME}/.env" 2>/dev/null || true
+        chmod 640 "${HERMES_HOME}/.env" 2>/dev/null || true
     fi
 
     # ── Exporta variáveis do .env para o ambiente ──
@@ -205,6 +271,13 @@ SOULEOF
 
     # Corrige permissões após envsubst
     chown hermes:hermes "${HERMES_HOME}/config.yaml" 2>/dev/null || true
+
+    # ── Diagnóstico: verifica se OPENROUTER_API_KEY está disponível ──
+    if [ -n "${OPENROUTER_API_KEY:-}" ]; then
+        echo "✅ OPENROUTER_API_KEY configurada (${#OPENROUTER_API_KEY} caracteres)"
+    else
+        echo "⚠️  OPENROUTER_API_KEY NÃO configurada — configure no .env ou docker-compose"
+    fi
 
     # ── Lista skills instaladas ──
     echo "📋 Skills instaladas:"
@@ -233,22 +306,33 @@ source /opt/hermes-venv/bin/activate
 # Cria subdiretórios essenciais (como hermes, não root)
 mkdir -p "${HERMES_HOME}"/{cron,sessions,logs,hooks,memories,skills,workspace,home}
 
-echo "🚀 Iniciando Agente IA Aguiavitech..."
-echo "   Modo: ${1:-gateway}"
-echo "   HERMES_HOME: ${HERMES_HOME}"
-echo "   API Server: 0.0.0.0:8642"
-echo "   MCP: Playwright (headless Chromium)"
-echo "   Usuário: $(whoami) ($(id -u))"
-echo "─────────────────────────────────────────────"
-
-cd "${HERMES_REPO}"
-
 # Exporta variáveis do .env para o ambiente (também como hermes)
 if [ -f "${HERMES_HOME}/.env" ]; then
     set -a
     source "${HERMES_HOME}/.env"
     set +a
 fi
+
+echo "🚀 Iniciando Agente IA Aguiavitech..."
+echo "   Modo: ${1:-gateway}"
+echo "   HERMES_HOME: ${HERMES_HOME}"
+echo "   API Server: 0.0.0.0:8642"
+echo "   MCP: Playwright (headless Chromium)"
+echo "   Usuário: $(whoami) ($(id -u))"
+if [ -n "${OPENROUTER_API_KEY:-}" ]; then
+    echo "   Provedor: OpenRouter ✅"
+elif [ -n "${ANTHROPIC_API_KEY:-}" ]; then
+    echo "   Provedor: Anthropic ✅"
+elif [ -n "${OPENAI_API_KEY:-}" ]; then
+    echo "   Provedor: OpenAI ✅"
+elif [ -n "${GOOGLE_API_KEY:-}" ]; then
+    echo "   Provedor: Google ✅"
+else
+    echo "   Provedor: ⚠️ NENHUM configurado"
+fi
+echo "─────────────────────────────────────────────"
+
+cd "${HERMES_REPO}"
 
 # Executa o comando passado (default: gateway)
 export PATH="/opt/hermes-venv/bin:${PATH}"
