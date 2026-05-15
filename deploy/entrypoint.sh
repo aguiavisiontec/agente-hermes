@@ -21,6 +21,7 @@ API_ENV_VARS=(
     "FAL_KEY"
     "API_SERVER_KEY"
     "ANTHROPIC_BASE_URL"
+    "GATEWAY_ALLOW_ALL_USERS"
 )
 
 # ── Função: mescla chaves API do ambiente (docker-compose) para o .env do Hermes ──

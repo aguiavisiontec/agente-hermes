@@ -42,6 +42,8 @@ services:
       - EXA_API_KEY=${EXA_API_KEY:-}
       - TAVIL_API_KEY=${TAVIL_API_KEY:-}
       - FAL_KEY=${FAL_KEY:-}
+      # ── Gateway: permitir acesso de todos os usuários ──
+      - GATEWAY_ALLOW_ALL_USERS=true
       # Proxy Anthropic local — descomente se tiver o proxy-anthropic rodando
       # - ANTHROPIC_BASE_URL=http://proxy-anthropic:4000
     networks:
