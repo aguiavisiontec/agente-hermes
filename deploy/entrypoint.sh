@@ -156,13 +156,8 @@ ENVEOF
 provider: openai
 model: "moonshotai/kimi-k2.6"
 
-# Provedores configurados
-providers:
-  openai:
-    api_key: "${NVIDIA_API_KEY}"
-    base_url: "https://integrate.api.nvidia.com/v1"
-  google:
-    api_key: "${GOOGLE_API_KEY}"
+# URL base da API (NVIDIA NIM endpoint)
+openai_base_url: "https://integrate.api.nvidia.com/v1"
 
 # API Server (necessário para o desktop app remoto)
 platforms:
@@ -270,6 +265,21 @@ SOULEOF
     set -a
     source "${HERMES_HOME}/.env"
     set +a
+
+    # ── Mapeia NVIDIA_API_KEY → OPENAI_API_KEY para o provedor openai ──
+    # O Hermes lê OPENAI_API_KEY quando provider: openai
+    # Mas nossa chave da NVIDIA NIM está em NVIDIA_API_KEY
+    if [ -n "${NVIDIA_API_KEY:-}" ] && [ -z "${OPENAI_API_KEY:-}" ]; then
+        export OPENAI_API_KEY="${NVIDIA_API_KEY}"
+        # Também escreve no .env para o runtime hermes encontrar
+        if ! grep -q "^OPENAI_API_KEY=" "${HERMES_HOME}/.env" 2>/dev/null; then
+            echo "OPENAI_API_KEY=${NVIDIA_API_KEY}" >> "${HERMES_HOME}/.env"
+            echo "   🔑 OPENAI_API_KEY mapeada a partir de NVIDIA_API_KEY"
+        else
+            sed -i "s|^OPENAI_API_KEY=.*|OPENAI_API_KEY=${NVIDIA_API_KEY}|" "${HERMES_HOME}/.env"
+            echo "   🔑 OPENAI_API_KEY atualizada a partir de NVIDIA_API_KEY"
+        fi
+    fi
 
     # Carrega API_SERVER_KEY para o config.yaml
     export API_SERVER_KEY="${API_SERVER_KEY:-hermes-aguiavision-2026}"
