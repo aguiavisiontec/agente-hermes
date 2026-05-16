@@ -152,17 +152,17 @@ ENVEOF
 # Aguiavision Tecnologia
 # ─────────────────────────────────────────────
 
-# Provedor de inferência padrão
-provider: local
+# Provedor de inferência padrão (NVIDIA NIM = OpenAI compatível)
+provider: openai
 model: "moonshotai/kimi-k2.6"
 
 # Provedores configurados
 providers:
-  google:
-    api_key: "${GOOGLE_API_KEY}"
-  nvidia:
+  openai:
     api_key: "${NVIDIA_API_KEY}"
     base_url: "https://integrate.api.nvidia.com/v1"
+  google:
+    api_key: "${GOOGLE_API_KEY}"
 
 # API Server (necessário para o desktop app remoto)
 platforms:
