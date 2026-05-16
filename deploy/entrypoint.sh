@@ -16,6 +16,7 @@ API_ENV_VARS=(
     "GOOGLE_API_KEY"
     "GROQ_API_KEY"
     "DEEPSEEK_API_KEY"
+    "NVIDIA_API_KEY"
     "EXA_API_KEY"
     "TAVIL_API_KEY"
     "FAL_KEY"
@@ -152,8 +153,16 @@ ENVEOF
 # ─────────────────────────────────────────────
 
 # Provedor de inferência padrão
-provider: google
-model: "gemini-2.0-flash"
+provider: local
+model: "moonshotai/kimi-k2.6"
+
+# Provedores configurados
+providers:
+  google:
+    api_key: "${GOOGLE_API_KEY}"
+  nvidia:
+    api_key: "${NVIDIA_API_KEY}"
+    base_url: "https://integrate.api.nvidia.com/v1"
 
 # API Server (necessário para o desktop app remoto)
 platforms:
@@ -277,10 +286,13 @@ SOULEOF
     if [ -n "${GOOGLE_API_KEY:-}" ]; then
         echo "✅ GOOGLE_API_KEY configurada (${#GOOGLE_API_KEY} caracteres)"
     fi
+    if [ -n "${NVIDIA_API_KEY:-}" ]; then
+        echo "✅ NVIDIA_API_KEY configurada (${#NVIDIA_API_KEY} caracteres)"
+    fi
     if [ -n "${OPENROUTER_API_KEY:-}" ]; then
         echo "✅ OPENROUTER_API_KEY configurada (${#OPENROUTER_API_KEY} caracteres)"
     fi
-    if [ -z "${GOOGLE_API_KEY:-}" ] && [ -z "${OPENROUTER_API_KEY:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -z "${OPENAI_API_KEY:-}" ]; then
+    if [ -z "${GOOGLE_API_KEY:-}" ] && [ -z "${OPENROUTER_API_KEY:-}" ] && [ -z "${ANTHROPIC_API_KEY:-}" ] && [ -z "${OPENAI_API_KEY:-}" ] && [ -z "${NVIDIA_API_KEY:-}" ]; then
         echo "⚠️  NENHUMA chave API configurada — configure no .env ou docker-compose"
     fi
 
@@ -324,7 +336,9 @@ echo "   HERMES_HOME: ${HERMES_HOME}"
 echo "   API Server: 0.0.0.0:8642"
 echo "   MCP: Playwright (headless Chromium)"
 echo "   Usuário: $(whoami) ($(id -u))"
-if [ -n "${GOOGLE_API_KEY:-}" ]; then
+if [ -n "${NVIDIA_API_KEY:-}" ]; then
+    echo "   Provedor: NVIDIA NIM (Kimi K2.6) ✅"
+elif [ -n "${GOOGLE_API_KEY:-}" ]; then
     echo "   Provedor: Google AI Studio (Gemini) ✅"
 elif [ -n "${OPENROUTER_API_KEY:-}" ]; then
     echo "   Provedor: OpenRouter ✅"
